@@ -1,0 +1,24 @@
+GitHub Pages Actions Setup
+==========================
+
+I added this workflow:
+.github/workflows/deploy-pages.yml
+
+After pushing these files to GitHub:
+
+1. Open your GitHub repository.
+2. Go to Settings > Pages.
+3. In Build and deployment, set Source to "GitHub Actions".
+4. Go to the Actions tab.
+5. You should see "Deploy static website to GitHub Pages".
+6. Open it and click "Run workflow" if it does not run automatically.
+
+If Actions tab is not visible:
+- Check repository top menu and click the "..." more menu.
+- Check Settings > Actions > General.
+- Make sure Actions are allowed for the repository.
+
+If the workflow does not start:
+- Make sure the workflow file is pushed to the main branch.
+- File path must be exactly: .github/workflows/deploy-pages.yml
+- Your repository branch should be main. If your branch is master, change branches: ["main"] to branches: ["master"].

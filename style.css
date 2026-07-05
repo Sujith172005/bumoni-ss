@@ -1,0 +1,3129 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Lato:wght@300;400;700&display=swap");
+
+:root {
+  --choc: #3a2218;
+  --choc-dark: #1a0e08;
+  --gold: #c9952e;
+  --gold-light: #e8c56a;
+  --gold-deep: #a67c1f;
+  --berry: #7a2e3a;
+  --cream: #fffaf4;
+  --cream-dark: #f3ebe0;
+  --muted: #7a5c4a;
+  --white: #ffffff;
+  --shadow: 0 22px 55px rgba(58, 34, 24, 0.16);
+  --font-heading: "Playfair Display", serif;
+  --font-ui: "Montserrat", sans-serif;
+  --font-body: "Lato", sans-serif;
+  --transition: all 0.3s ease;
+  --carousel-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --carousel-slide-ms: 0.72s;
+  --hero-fade-ms: 1.4s;
+  --carousel-interval-ms: 4s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 114px !important;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--choc);
+  line-height: 1.7;
+  overflow-x: hidden;
+  padding-top: 102px !important;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: min(100% - 32px, 1200px);
+  margin: 0 auto;
+}
+
+.nav-container {
+  width: min(100% - 18px, 1460px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#scroll-progress {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 10000;
+  width: 0;
+  height: 3px;
+  background: var(--gold);
+}
+
+/* =========================================================
+   CLEAN FIXED NAVBAR ACTIONS (WHATSAPP + INSTAGRAM BOTH ICON LINKS)
+   ========================================================= */
+/* 1. Make the main wrapper relative so things can scroll naturally inside it */
+.site-header {
+    position: relative !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+/* 2. Keep the top brown information bar flowing naturally (it will scroll up away) */
+.kron-info-bar {
+    position: relative !important; /* Forces it to scroll out of view */
+    background:  #ffbf00 !important;
+    color: #000000 !important;
+    border-bottom: 1px solid rgb(193, 153, 7);
+    z-index: 1000 !important;
+}
+
+/* 3. ONLY freeze the white navigation container to the top of the viewport */
+#navbar {
+    position: fixed !important;    /* Keeps only the navbar pinned */
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    width: 100% !important;
+    z-index: 2147483640 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(58, 34, 24, 0.1);
+    box-shadow: 0 8px 24px rgba(58, 34, 24, 0.05);
+    overflow: visible !important;
+}
+.kron-info-inner {
+  min-height: 30px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 24px !important;
+  flex-wrap: wrap !important;
+  font-family: var(--font-ui) !important;
+  font-size: 0.80rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+}
+
+.kron-info-inner strong {
+  color: #e8c56a !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  margin-right: 6px !important;
+}
+
+.kron-info-inner a { color: #050504 !important; }
+
+.kron-nav {
+  min-height: 102px !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr !important;
+  align-items: center !important;
+  gap: 12px !important;
+  position: relative !important;
+}
+
+.nav-left-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-right-col {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.kron-center-logo {
+    position: relative;
+    top: 20px;      /* Move logo downward */
+    z-index: 1000;
+}
+
+.kron-center-logo img {
+    width: 170px !important;
+    height: 120px !important;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.navbar,
+.header,
+.top-bar {
+    overflow: visible !important;
+}.nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.nav-links a {
+  color: #3a2218 !important;
+  font-family: var(--font-ui);
+  font-size: 0.80rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase;
+  padding: 14px 14px !important;
+  border-radius: 999px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a:active {
+  color: var(--cream) !important;
+  background: var(--gold) !important;
+}
+
+.nav-dropdown {
+  position: relative !important;
+}
+
+.nav-dropdown::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 100% !important;
+  height: 12px !important;
+}
+
+.dropdown-menu {
+  position: absolute !important;
+  top: calc(100% + 4px) !important;
+  left: 0 !important;
+  min-width: 210px !important;
+  padding: 6px !important;
+  background: #fffaf4 !important;
+  border: 1px solid rgba(201, 149, 46, 0.35) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--shadow) !important;
+  z-index: 2147483001 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(8px) scale(0.98) !important;
+  transition: opacity 0.22s ease, transform 0.22s ease !important;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.dropdown-menu a {
+  display: block !important;
+  width: 100% !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  white-space: nowrap !important;
+}
+
+.nav-dropdown > a span {
+  display: inline-block !important;
+  margin-left: 3px !important;
+  transition: transform 0.25s ease !important;
+}
+
+.nav-dropdown:hover > a span {
+  transform: rotate(180deg) !important;
+}
+
+.nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.icon-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 14px !important;
+  height: 36px !important;
+  border: 2px solid var(--gold) !important;
+  border-radius: 999px !important;
+  color: var(--gold) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.icon-link:hover {
+  background: var(--gold);
+  color: var(--cream) !important;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem !important;
+  font-family: var(--font-ui);
+  font-size: 0.72rem !important;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  color: var(--choc-dark);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border-color: var(--gold);
+  box-shadow: 0 4px 12px rgba(201, 149, 46, 0.2);
+}
+
+.btn-whatsapp {
+  color: var(--white) !important;
+  background: #25d366 !important;
+  border-color: #25d366 !important;
+}
+
+/* =========================================================
+   STABLE HERO & INNER CATEGORY DETAIL BANNERS
+   ========================================================= */
+.hero,
+.detail-hero {
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  height: clamp(480px, 58vh, 600px) !important;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+.hero .container.hero-content,
+.detail-hero .container.detail-content {
+  width: min(100% - 42px, 1200px);
+  position: relative;
+  z-index: 5 !important;
+  padding-bottom: 0 !important;
+}
+
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-slide,
+.detail-hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.hero-slide {
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity var(--hero-fade-ms) cubic-bezier(0.22, 1, 0.36, 1), transform var(--hero-fade-ms) cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.hero .hero-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 253, 247, 0.75);
+  border-radius: 50%;
+  background: rgba(23, 11, 5, 0.45);
+  color: var(--cream);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: var(--transition);
+}
+
+.hero-arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.hero-arrow-prev { left: 16px; }
+.hero-arrow-next { right: 16px; }
+
+.hero .hero-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 2px solid rgba(255, 250, 244, 0.85);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.hero-dot.active {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+.hero-overlay,
+.detail-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1 !important;
+  background: linear-gradient(105deg, rgba(26, 14, 8, 0.92) 0%, rgba(26, 14, 8, 0.62) 42%, rgba(26, 14, 8, 0.18) 72%, rgba(26, 14, 8, 0.05) 100%) !important;
+}
+
+.hero-content,
+.detail-content {
+  color: var(--cream) !important;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  color: var(--gold-deep);
+  font-family: var(--font-ui);
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.detail-hero h1 {
+  max-width: 680px;
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.4rem) !important;
+  line-height: 1.15 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.hero em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.hero p,
+.detail-content p {
+  max-width: 480px;
+  margin: 0.5rem 0 1.2rem;
+  color: rgba(255, 253, 247, 0.9) !important;
+  font-size: 1rem !important;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* =========================================================
+   STORY & ABOUT LAYOUT
+   ========================================================= */
+.section {
+  padding: 5rem 0;
+}
+
+.section-header {
+  max-width: 800px;
+  margin: 0 auto 2.4rem;
+  text-align: center;
+}
+
+.section-title {
+  color: var(--choc);
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 1.5rem);
+  line-height: 1.1;
+}
+
+.section-subtitle {
+  max-width: 690px;
+  margin: 1rem auto 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.85fr) minmax(340px, 1.15fr); 
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.about-image {
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-content .section-title,
+.about-content p {
+  text-align: left;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 1.8rem;
+}
+
+.feature-row div {
+  padding: 1rem 0.5rem;
+  background: var(--cream-dark);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.feature-row strong {
+  display: block;
+  color: var(--gold);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+}
+
+.feature-row span {
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   COMPACT CREATIONS SECTIONS
+   ========================================================= */
+.products-section,
+.other-business-section,
+.contact-section {
+  background: var(--cream-dark);
+}
+
+.creation-grid,
+.compact-creation-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+.creation-card,
+.compact-creation-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 225px !important;
+  overflow: hidden;
+  border-radius: 18px !important;
+  background: var(--choc);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(201, 149, 46, 0.2);
+  transition: transform 0.28s ease;
+}
+
+.creation-card:hover,
+.compact-creation-card:hover {
+  transform: translateY(-6px);
+}
+
+.creation-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.creation-card img,
+.compact-creation-card img {
+  width: 100% !important;
+  height: 225px !important;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.creation-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(23, 11, 5, 0.82) 0%, rgba(23, 11, 5, 0.22) 48%, rgba(23, 11, 5, 0.04) 100%) !important;
+}
+
+.creation-card-content {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  padding: 1rem 1.05rem !important;
+  color: var(--cream);
+}
+
+.creation-card-content h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.1vw, 1.65rem) !important;
+  line-height: 1.08 !important;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.55) !important;
+}
+
+.creation-card-content span {
+  color: var(--gold-light) !important;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.55) !important;
+}
+
+/* =========================================================
+   QUALITY, CONTACT & PRODUCTS DISPLAY
+   ========================================================= */
+.quality-grid,
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.quality-grid article {
+  min-height: 220px;
+  padding: 2rem;
+  background: var(--white);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.quality-grid h3,
+.type-card h2,
+.site-footer h3 {
+  font-family: var(--font-heading);
+  color: var(--choc);
+}
+
+.quality-grid p {
+  margin-top: 0.8rem;
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   OTHER BUSINESSES SECTION
+   ========================================================= */
+.other-business-section {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(201, 168, 76, 0.20), transparent 32%),
+    radial-gradient(circle at 90% 88%, rgba(96, 45, 18, 0.12), transparent 34%),
+    linear-gradient(135deg, #fffaf0 0%, #ffffff 48%, #fff3d9 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.other-business-section::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  border-radius: 34px;
+  pointer-events: none;
+}
+
+.other-business-header {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.other-business-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+}
+
+.other-business-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 155px 1fr;
+  gap: 26px;
+  align-items: center;
+  min-height: 285px;
+  padding: 34px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(201, 168, 76, 0.42);
+  border-radius: 34px;
+  box-shadow: 0 22px 55px rgba(62, 31, 15, 0.13);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.other-business-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(201, 168, 76, 0.17), transparent 38%, rgba(75, 34, 8, 0.07));
+  pointer-events: none;
+}
+
+.other-business-card::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  right: -54px;
+  bottom: -54px;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, 0.16);
+}
+
+.other-business-card:hover {
+  transform: translateY(-9px);
+  border-color: rgba(201, 168, 76, 0.72);
+  box-shadow: 0 30px 70px rgba(62, 31, 15, 0.20);
+}
+
+.business-logo-box {
+  position: relative;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #ffffff, #fff3d7);
+  border: 2px solid rgba(201, 168, 76, 0.48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 16px 35px rgba(62, 31, 15, 0.13);
+}
+
+.business-logo-box img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.other-business-card:hover .business-logo-box img {
+  transform: scale(1.06);
+}
+
+.business-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.business-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(201, 168, 76, 0.15);
+  color: var(--gold-dark);
+  font-family: var(--font-ui);
+  font-size: 0.70rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.other-business-card h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  color: var(--choc);
+  font-size: clamp(1.9rem, 3vw, 2.45rem);
+}
+
+.other-business-card p {
+  margin: 0 0 22px;
+  color: var(--muted);
+  line-height: 1.78;
+  font-size: 0.98rem;
+}
+
+.business-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: var(--choc);
+  color: var(--white);
+  font-family: var(--font-ui);
+  font-size: 0.84rem;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 14px 26px rgba(62, 31, 15, 0.18);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.business-link:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--cream);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 32px;
+  box-shadow: var(--shadow);
+}
+
+.contact-card p { color: var(--muted); }
+
+.contact-form {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(42, 24, 16, 0.14);
+  border-radius: 16px;
+  background: var(--white);
+  color: var(--choc);
+  font: inherit;
+}
+
+.contact-status {
+  min-height: 24px;
+  color: var(--muted);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 253, 247, 0.86);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.breadcrumb a { color: var(--gold-light); }
+.product-intro { background: var(--cream); }
+
+.type-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 28px !important;
+  box-shadow: var(--shadow);
+  transition: transform 0.28s ease;
+}
+
+.type-card:hover {
+  transform: translateY(-6px);
+}
+
+.type-card img {
+  width: 100% !important;
+  height: 230px !important;
+  object-fit: cover !important;
+}
+
+.type-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+}
+
+.type-card h2 {
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem) !important;
+}
+
+.type-card p {
+  flex: 1;
+  margin: 0.6rem 0 1rem;
+  color: var(--muted);
+}
+
+.type-card .btn { width: 100%; }
+
+.mini-links {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.mini-link {
+  padding: 1.2rem;
+  background: var(--cream);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 18px;
+  color: var(--choc);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.mini-link:hover {
+  color: var(--cream);
+  background: var(--gold);
+}
+
+/* =========================================================
+   FOOTER & DRAWER STRUCTURAL CSS
+   ========================================================= */
+.site-footer {
+  padding: 4.5rem 0 0;
+  background: #ffffff !important;
+  color: #3a2218 !important;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr 0.85fr 1.1fr;
+  gap: 2rem;
+}
+
+.footer-logo {
+  display: flex !important;
+  background: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+  padding: 0 !important;
+  margin-bottom: 16px !important;
+  border-radius: 50% !important;
+  justify-content: center !important;
+  width: 200px !important;
+  height: 130px !important;
+}
+
+.footer-logo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+}
+
+.site-footer a,
+.site-footer p,
+.site-footer h3,
+.footer-bottom {
+  color: #000000 !important;
+}
+
+.site-footer h3 { margin-bottom: 1rem; }
+.site-footer ul { display: grid; gap: 0.45rem; }
+
+.footer-wa {
+  display: inline-block;
+  margin-top: 0.7rem;
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding: 1.2rem;
+  border-top: 1px solid rgba(58, 34, 24, 0.15);
+  text-align: center;
+}
+
+.floating-wa {
+  position: fixed !important;
+  right: 22px !important;
+  bottom: 22px !important;
+  width: 62px !important;
+  height: 62px !important;
+  z-index: 2147483641 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  background: #25d366 !important;
+  color: #ffffff !important;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28) !important;
+  transition: transform 0.25s ease;
+}
+
+.floating-wa svg {
+  width: 34px !important;
+  height: 34px !important;
+  fill: #ffffff !important;
+}
+
+.floating-wa:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 2px;
+  background: var(--choc);
+}
+
+.mobile-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.mobile-backdrop.open {
+  display: block !important;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10001;
+  width: min(84vw, 330px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  box-shadow: -12px 0 34px rgba(0, 0, 0, 0.18);
+  transform: translateX(100%);
+  transition: transform 0.32s ease;
+}
+
+.mobile-drawer.open { transform: translateX(0); }
+.drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; }
+.drawer-logo img { width: 150px; object-fit: contain; }
+.drawer-close { background: none; border: 0; color: var(--choc); font-size: 2.2rem; cursor: pointer; }
+.drawer-links { display: flex; flex-direction: column; gap: 8px; padding: 18px; }
+.drawer-links a { display: block; padding: 13px 14px; border-radius: 14px; background: rgba(201, 168, 76, 0.08); font-family: var(--font-ui); font-weight: 700; text-transform: uppercase; }
+.drawer-footer { margin-top: auto; padding: 18px; }
+.drawer-footer .btn { width: 100%; }
+
+/* =========================================================
+   RESPONSIVE MEDIA QUERIES (HAMBURGER ON RIGHT SIDE)
+   ========================================================= */
+@media (max-width: 980px) {
+  html { scroll-padding-top: 104px !important; }
+  body { padding-top: 92px !important; }
+
+  .kron-nav {
+    min-height: 92px !important;
+    display: grid !important;
+    /* 3-column setup: Left side empty, Logo perfectly Centered, Menu on Right */
+    grid-template-columns: 80px 1fr 80px !important;
+    align-items: center !important;
+    gap: 0 !important;
+  }
+
+  .nav-left-col, 
+  .nav-right-col { 
+    display: none !important; 
+  }
+
+  /* Left column acts as a blank spacer to maintain perfect center balance */
+
+  /* Perfectly centered in the middle column */
+  .kron-center-logo { 
+    grid-column: 2 !important; 
+    grid-row: 1 !important;
+    justify-self: center !important; 
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .kron-center-logo img { 
+    width: 170px !important; 
+    max-height: 72px !important; 
+    margin: 0 auto !important;
+  }
+
+  /* Shunted cleanly over to the far right position */
+  .hamburger { 
+    display: flex !important; 
+    grid-column: 3 !important; 
+    grid-row: 1 !important;
+    justify-self: end !important; 
+    margin-right: 16px !important;
+  }
+
+  .creation-grid, .compact-creation-grid, .types-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+  .creation-card, .compact-creation-card { min-height: 205px !important; }
+  .creation-card img, .compact-creation-card img { height: 205px !important; }
+  .footer-grid, .contact-card, .about-grid { grid-template-columns: 1fr !important; }
+  .mini-links { grid-template-columns: repeat(3, 1fr); }
+  .about-image { max-height: 300px; height: 300px; width: 100%; max-width: 450px; margin: 0 auto; }
+  .about-content { text-align: center; }
+  .about-content .section-title, .about-content p { text-align: center; }
+
+  .other-business-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  .other-business-card {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    padding: 26px 20px;
+  }
+  .business-logo-box {
+    margin: 0 auto;
+    width: 130px;
+    height: 130px;
+  }
+  .business-logo-box img {
+    width: 104px;
+    height: 104px;
+  }
+}
+
+@media (max-width: 620px) {
+  .kron-nav {
+    grid-template-columns: 60px 1fr 60px !important;
+  }
+  .hamburger {
+    margin-right: 8px !important;
+  }
+  .kron-center-logo img {
+    width: 140px !important;
+  }
+  .kron-info-inner { justify-content: center !important; gap: 7px !important; font-size: 0.56rem !important; }
+  .creation-grid, .compact-creation-grid, .types-grid, .feature-row, .mini-links { grid-template-columns: 1fr !important; }
+  .creation-card, .compact-creation-card { min-height: 190px !important; }
+  .business-link { width: 100%; }
+  .footer-logo { display: flex !important; justify-content: center !important; margin: 0 auto 14px !important; width: 115px !important; height: 115px; border-radius: 50% !important; }
+  .footer-grid { text-align: center; }
+  .floating-wa { right: 16px !important; bottom: 16px !important; width: 56px !important; height: 56px !important; }
+  .floating-wa svg { width: 30px !important; height: 30px !important; }
+}
+@media (max-width: 620px) {
+  /* ... keeping your other mobile rules (kron-info-inner, grids, etc.) ... */
+
+  .footer-logo {
+    display: inline-flex !important;      /* Changes block layout into crisp flex centering */
+    align-items: center !important;      /* Perfectly centers the image vertically */
+    justify-content: center !important;  /* Perfectly centers the image horizontally */
+    margin: 0 auto 16px !important;      /* Centers the badge block container itself in the footer */
+    
+    width: 120px !important;             /* Equal square dimensions enforce a strict perfect circle */
+    height: 120px !important;            /* Equal square dimensions enforce a strict perfect circle */
+    border-radius: 50% !important;       /* Clips the square into a clean circle */
+    background: #ffffff !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+    padding: 12px !important;            /* Safe spacing cushion inside the circle border */
+    overflow: hidden !important;
+  }
+
+  .footer-logo img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;      /* Keeps the image asset scaling safely within the padding bounds */
+    border-radius: 50% !important;
+    display: block !important;
+  }
+
+  /* ... keeping your other layout rules (footer-grid, floating-wa, etc.) ... */
+}
+@media (max-width: 768px) {
+  .hero,
+  .detail-hero {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: clamp(380px, 50vh, 460px) !important;
+  }
+  .hero-overlay,
+  .detail-overlay { background: linear-gradient(180deg, rgba(26, 14, 8, 0.4) 0%, rgba(26, 14, 8, 0.75) 50%, rgba(26, 14, 8, 0.9) 100%) !important; }
+  .hero .hero-arrow { display: none; }
+  .hero .container.hero-content,
+  .detail-hero .container.detail-content { text-align: center !important; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .hero h1,
+  .detail-hero h1 { font-size: clamp(1.8rem, 7vw, 2.5rem) !important; }
+  .hero p,
+  .detail-content p { margin: 0.4rem auto 0.8rem; font-size: 0.9rem; }
+  .hero-actions { width: 100%; justify-content: center !important; }
+  .hero-actions .btn { width: 100%; max-width: 220px; }
+}
+
+/* === Bumoniis update: top info bar icons + right alignment === */
+.kron-info-inner {
+  justify-content: flex-end !important;
+  gap: 18px !important;
+  text-align: right !important;
+}
+
+.info-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 5px !important;
+  white-space: nowrap !important;
+}
+
+.info-icon {
+  color: var(--gold-light) !important;
+  font-size: 0.82rem !important;
+  line-height: 1 !important;
+}
+
+.baked-products-section {
+  padding-top: 0 !important;
+}
+
+.baked-products-section .creation-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 992px) {
+  .kron-info-inner {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .baked-products-section .creation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .info-item {
+    white-space: normal !important;
+    justify-content: center !important;
+  }
+
+  .baked-products-section .creation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* === Final fix: top info bar location left, timing and call right === */
+.kron-info-inner {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 18px !important;
+  text-align: left !important;
+  width: min(100% - 32px, 1200px) !important;
+  margin: 0 auto !important;
+}
+
+.location-info {
+  margin-right: auto !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+.time-info,
+.call-info {
+  margin-left: 20px !important;
+  justify-content: flex-end !important;
+  text-align: right !important;
+}
+
+@media (max-width: 768px) {
+  .kron-info-inner {
+    width: min(100% - 24px, 1200px) !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px !important;
+    text-align: center !important;
+  }
+
+  .location-info,
+  .time-info,
+  .call-info {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
+
+/* =========================================================
+   FLOATING WHATSAPP LOGO BUTTON
+   ========================================================= */
+.floating-whatsapp {
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 50% !important;
+  background: #25D366 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 2147483647 !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28) !important;
+  border: 3px solid #ffffff !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34) !important;
+}
+
+.floating-whatsapp svg {
+  width: 38px !important;
+  height: 38px !important;
+  fill: #ffffff !important;
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .floating-whatsapp {
+    right: 15px !important;
+    bottom: 15px !important;
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .floating-whatsapp svg {
+    width: 34px !important;
+    height: 34px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL MOBILE HEADER + DRAWER + CENTER LAST COLLECTION FIX
+   ========================================================= */
+
+/* Center the last Desserts card in Bumonii's Collections on desktop */
+@media (min-width: 981px) {
+  #products .compact-creation-grid > .compact-creation-card:last-child,
+  #products .creation-grid > .creation-card:last-child {
+    grid-column: 2 / 3 !important;
+    justify-self: stretch !important;
+  }
+}
+
+/* Mobile top information bar: small, neat and aligned */
+@media (max-width: 768px) {
+  body {
+    padding-top: 92px !important;
+  }
+
+  .kron-info-bar {
+    min-height: 24px !important;
+    padding: 2px 0 !important;
+  }
+
+  .kron-info-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 22px !important;
+    padding: 0 6px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+    flex-wrap: wrap !important;
+    text-align: center !important;
+    font-size: 0.50rem !important;
+    line-height: 1.15 !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  .kron-info-inner .info-item,
+  .location-info,
+  .time-info,
+  .call-info {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    max-width: 100% !important;
+  }
+
+  .kron-info-inner .info-icon {
+    font-size: 0.58rem !important;
+    line-height: 1 !important;
+  }
+
+  .kron-nav {
+    min-height: 68px !important;
+    grid-template-columns: 52px 1fr 52px !important;
+  }
+
+  .kron-center-logo {
+    top: 0 !important;
+  }
+
+  .kron-center-logo img {
+    width: 118px !important;
+    height: 62px !important;
+    max-height: 62px !important;
+  }
+
+  .hamburger {
+    display: flex !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: 10px !important;
+    transform: translateY(-50%) !important;
+    z-index: 2147483647 !important;
+    margin: 0 !important;
+    padding: 8px !important;
+  }
+
+  .hamburger span {
+    width: 24px !important;
+    height: 2px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .kron-info-inner {
+    font-size: 0.46rem !important;
+    gap: 4px !important;
+  }
+
+  .location-info {
+    max-width: 48% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+}
+
+/* Mobile drawer dropdown style */
+.drawer-dropdown {
+  display: block !important;
+}
+
+.drawer-dropdown-toggle {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  padding: 13px 14px !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  background: rgba(201, 168, 76, 0.08) !important;
+  color: var(--choc) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 0.80rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  cursor: pointer !important;
+}
+
+.drawer-dropdown-toggle span {
+  transition: transform 0.25s ease !important;
+}
+
+.drawer-dropdown.open .drawer-dropdown-toggle span {
+  transform: rotate(180deg) !important;
+}
+
+.drawer-submenu {
+  display: none !important;
+  padding: 8px 0 4px 12px !important;
+}
+
+.drawer-dropdown.open .drawer-submenu {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+
+.drawer-submenu a {
+  padding: 10px 12px !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.65) !important;
+  font-size: 0.72rem !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
+}
+
+
+/* =========================================================
+   UPDATED FOOTER ALIGNMENT
+   ========================================================= */
+.site-footer {
+  text-align: left !important;
+}
+
+.footer-grid-updated {
+  display: grid !important;
+  grid-template-columns: 1.35fr 1fr 0.85fr 1fr !important;
+  gap: 36px !important;
+  align-items: flex-start !important;
+}
+
+.footer-brand-block,
+.footer-link-block,
+.footer-contact-block {
+  text-align: left !important;
+}
+
+.footer-logo-left {
+  display: inline-flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  margin: 0 0 12px 0 !important;
+}
+
+.footer-logo-left img {
+  margin: 0 !important;
+}
+
+.footer-brand-title,
+.footer-link-block h3,
+.footer-contact-block h3 {
+  text-align: left !important;
+  margin-bottom: 12px !important;
+}
+
+.footer-link-block ul,
+.footer-contact-block p,
+.footer-brand-block p {
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.footer-link-block li {
+  margin-bottom: 8px !important;
+}
+
+.footer-contact-block .footer-phone,
+.footer-contact-block .footer-wa {
+  display: block !important;
+  width: fit-content !important;
+  margin-top: 8px !important;
+  text-align: left !important;
+}
+
+@media (max-width: 900px) {
+  .footer-grid-updated {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid-updated {
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+  }
+
+  .footer-brand-block,
+  .footer-link-block,
+  .footer-contact-block,
+  .footer-brand-title,
+  .footer-link-block h3,
+  .footer-contact-block h3,
+  .footer-link-block ul,
+  .footer-contact-block p,
+  .footer-brand-block p {
+    text-align: left !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE DRAWER ALIGNMENT FIX
+   Keeps long menu names like Chocolates & Confections neat
+   ========================================================= */
+.drawer-dropdown,
+.drawer-links > a {
+  width: 100% !important;
+}
+
+.drawer-dropdown-toggle,
+.drawer-links > a,
+.drawer-submenu a {
+  text-align: left !important;
+  line-height: 1.35 !important;
+}
+
+.drawer-dropdown-toggle {
+  min-height: 48px !important;
+  white-space: normal !important;
+}
+
+.drawer-dropdown-toggle span {
+  flex: 0 0 auto !important;
+  margin-left: 8px !important;
+}
+
+.drawer-submenu {
+  width: 100% !important;
+  margin: 6px 0 2px 0 !important;
+  padding: 6px 0 4px 10px !important;
+  border-left: 2px solid rgba(201, 149, 46, 0.35) !important;
+}
+
+.drawer-submenu a {
+  width: 100% !important;
+  display: block !important;
+  padding: 10px 12px !important;
+  word-break: normal !important;
+}
+
+@media (max-width: 420px) {
+  .mobile-drawer {
+    width: min(90vw, 340px) !important;
+  }
+
+  .drawer-links {
+    padding: 14px !important;
+    gap: 7px !important;
+  }
+
+  .drawer-dropdown-toggle,
+  .drawer-links > a {
+    font-size: 0.74rem !important;
+    letter-spacing: 0.03em !important;
+    padding: 12px 12px !important;
+  }
+
+  .drawer-submenu a {
+    font-size: 0.70rem !important;
+  }
+}
+
+/* =========================================================
+   FINAL FIX: MOBILE THREE-LINE MENU FOR GITHUB PAGES
+   Ensures the drawer/backdrop always opens above the fixed header.
+   ========================================================= */
+@media (max-width: 980px) {
+  #navbar {
+    z-index: 9000 !important;
+  }
+
+  .hamburger {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    border: 0 !important;
+    background: rgba(255, 250, 244, 0.94) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 20px rgba(58, 34, 24, 0.12) !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+  }
+
+  .hamburger span {
+    display: block !important;
+    background: var(--choc) !important;
+    border-radius: 999px !important;
+  }
+
+  .mobile-backdrop {
+    display: block !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: 2147483644 !important;
+    transition: opacity 0.25s ease, visibility 0.25s ease !important;
+  }
+
+  .mobile-backdrop.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .mobile-drawer {
+    z-index: 2147483645 !important;
+    background: #fffaf4 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    transform: translateX(105%) !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .mobile-drawer.open {
+    transform: translateX(0) !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  body.menu-open {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+}
+
+/* =========================================================
+   FINAL FIX: Mobile drawer logo background + exact WhatsApp icon
+   ========================================================= */
+@media (max-width: 980px) {
+  .mobile-drawer,
+  .drawer-header {
+    background: #ffffff !important;
+  }
+
+  .drawer-header {
+    border-bottom: 1px solid rgba(58, 34, 24, 0.10) !important;
+    box-shadow: 0 8px 22px rgba(58, 34, 24, 0.06) !important;
+  }
+
+  .drawer-logo,
+  .drawer-logo img,
+  .kron-center-logo,
+  .kron-center-logo img {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .drawer-logo img {
+    width: 154px !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    object-fit: contain !important;
+  }
+}
+
+.floating-whatsapp {
+  background: #25D366 !important;
+  border: 3px solid #ffffff !important;
+  overflow: hidden !important;
+}
+
+.floating-whatsapp svg {
+  width: 34px !important;
+  height: 34px !important;
+  fill: #ffffff !important;
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .floating-whatsapp svg {
+    width: 31px !important;
+    height: 31px !important;
+  }
+}
+
+/* === Updated Other Businesses: clean logo boxes + premium animation === */
+.other-business-section {
+  background:
+    linear-gradient(135deg, rgba(255, 249, 235, 0.95), rgba(255, 255, 255, 1) 42%, rgba(255, 246, 224, 0.95)) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.other-business-section::before {
+  inset: 28px !important;
+  border-radius: 36px !important;
+  border: 1px solid rgba(201, 168, 76, 0.18) !important;
+  background: linear-gradient(120deg, rgba(255,255,255,0.22), rgba(201,168,76,0.06), rgba(255,255,255,0.18)) !important;
+}
+
+.other-business-section::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.10), transparent 68%);
+  pointer-events: none;
+  animation: businessGlow 6s ease-in-out infinite;
+}
+
+.other-business-grid {
+  gap: 28px !important;
+}
+
+.other-business-card {
+  grid-template-columns: 135px 1fr !important;
+  min-height: 255px !important;
+  padding: 30px !important;
+  border-radius: 28px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(201, 168, 76, 0.30) !important;
+  box-shadow: 0 18px 45px rgba(62, 31, 15, 0.10) !important;
+  transform: translateY(0);
+  animation: businessFloatIn 0.85s ease both;
+}
+
+.other-business-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.other-business-card::before {
+  background: linear-gradient(115deg, rgba(255,255,255,0.35), rgba(201,168,76,0.08), rgba(255,255,255,0.18)) !important;
+}
+
+.other-business-card::after {
+  display: none !important;
+}
+
+.other-business-card:hover {
+  transform: translateY(-10px) scale(1.015) !important;
+  border-color: rgba(201, 168, 76, 0.62) !important;
+  box-shadow: 0 28px 65px rgba(62, 31, 15, 0.18) !important;
+}
+
+.business-logo-box,
+.clean-logo-box {
+  width: 125px !important;
+  height: 125px !important;
+  border-radius: 22px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(201, 168, 76, 0.32) !important;
+  box-shadow: 0 12px 28px rgba(62, 31, 15, 0.08) !important;
+  padding: 14px !important;
+  overflow: visible !important;
+}
+
+.business-logo-box::after,
+.clean-logo-box::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 0%, rgba(201,168,76,0.16) 45%, transparent 75%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.other-business-card:hover .business-logo-box::after,
+.other-business-card:hover .clean-logo-box::after {
+  opacity: 1;
+}
+
+.business-logo-box img,
+.clean-logo-box img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 105px !important;
+  max-height: 105px !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  filter: drop-shadow(0 7px 13px rgba(62, 31, 15, 0.10));
+}
+
+.other-business-card:hover .business-logo-box img,
+.other-business-card:hover .clean-logo-box img {
+  transform: scale(1.08) rotate(-1deg) !important;
+}
+
+.business-label {
+  background: rgba(201, 168, 76, 0.12) !important;
+  border: 1px solid rgba(201, 168, 76, 0.22) !important;
+}
+
+.business-link {
+  background: linear-gradient(135deg, var(--choc), #7a451b) !important;
+  box-shadow: 0 12px 25px rgba(62, 31, 15, 0.16) !important;
+}
+
+.business-link:hover {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold)) !important;
+  transform: translateY(-3px) !important;
+}
+
+@keyframes businessFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes businessGlow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@media (max-width: 900px) {
+  .other-business-card {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    padding: 26px 20px !important;
+  }
+
+  .business-logo-box,
+  .clean-logo-box {
+    margin: 0 auto !important;
+    width: 118px !important;
+    height: 118px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .other-business-section::before {
+    inset: 12px !important;
+    border-radius: 24px !important;
+  }
+
+  .other-business-grid {
+    gap: 18px !important;
+  }
+
+  .business-logo-box,
+  .clean-logo-box {
+    width: 108px !important;
+    height: 108px !important;
+  }
+}
+
+
+/* === FINAL FIX: other business placement, buttons, logos, WhatsApp enquiry pill === */
+.other-business-section {
+  padding: 82px 18px !important;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(212, 175, 55, 0.16), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(98, 47, 14, 0.10), transparent 30%),
+    linear-gradient(135deg, #fffdf8 0%, #fff7e8 46%, #ffffff 100%) !important;
+}
+
+.other-business-section::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 22px !important;
+  border-radius: 34px !important;
+  background: linear-gradient(120deg, rgba(255,255,255,0.35), rgba(212,175,55,0.06), rgba(255,255,255,0.35)) !important;
+  border: 1px solid rgba(212, 175, 55, 0.18) !important;
+  pointer-events: none !important;
+  animation: softBusinessGlow 6s ease-in-out infinite alternate !important;
+}
+
+.other-business-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.other-business-card {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 155px 1fr !important;
+  align-items: center !important;
+  gap: 24px !important;
+  text-align: left !important;
+  min-height: 250px !important;
+  padding: 32px !important;
+  border-radius: 30px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(212, 175, 55, 0.30) !important;
+  box-shadow: 0 18px 48px rgba(78, 40, 11, 0.13) !important;
+  overflow: hidden !important;
+  transform: translateY(0) !important;
+  animation: cardFloatIn 0.9s ease both !important;
+}
+
+.other-business-card:nth-child(2) { animation-delay: .15s !important; }
+
+.other-business-card::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 150px !important;
+  height: 150px !important;
+  right: -55px !important;
+  top: -55px !important;
+  border-radius: 50% !important;
+  background: rgba(212, 175, 55, 0.13) !important;
+  transition: transform .4s ease, opacity .4s ease !important;
+}
+
+.other-business-card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 28px 65px rgba(78, 40, 11, 0.20) !important;
+  border-color: rgba(184, 134, 11, 0.55) !important;
+}
+
+.other-business-card:hover::after {
+  transform: scale(1.35) !important;
+  opacity: .9 !important;
+}
+
+.clean-logo-box,
+.business-logo-box {
+  width: 140px !important;
+  height: 140px !important;
+  min-width: 140px !important;
+  border-radius: 26px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(212, 175, 55, 0.38) !important;
+  box-shadow: inset 0 0 0 8px rgba(255, 247, 230, 0.75), 0 15px 35px rgba(91, 45, 12, 0.10) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.business-logo-box img {
+  width: 112px !important;
+  height: 112px !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  transition: transform .35s ease !important;
+}
+
+.other-business-card:hover .business-logo-box img {
+  transform: scale(1.08) rotate(-2deg) !important;
+}
+
+.business-card-content h3 {
+  font-size: 28px !important;
+  margin: 8px 0 12px !important;
+  color: #4b2208 !important;
+}
+
+.business-card-content p {
+  color: #6b4a2b !important;
+  line-height: 1.72 !important;
+}
+
+.business-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 168px !important;
+  margin-top: 6px !important;
+  padding: 12px 20px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #5b2b0d, #b8860b) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: 800 !important;
+  letter-spacing: .2px !important;
+  box-shadow: 0 12px 24px rgba(91, 43, 13, .18) !important;
+}
+
+.business-link:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 16px 30px rgba(91, 43, 13, .25) !important;
+}
+
+.floating-whatsapp {
+  width: auto !important;
+  height: 56px !important;
+  min-width: 156px !important;
+  border-radius: 999px !important;
+  padding: 0 18px 0 14px !important;
+  gap: 9px !important;
+  background: linear-gradient(135deg, #20bd5a, #128c4a) !important;
+  box-shadow: 0 14px 34px rgba(18, 140, 74, 0.33) !important;
+}
+
+.floating-whatsapp svg {
+  width: 29px !important;
+  height: 29px !important;
+  flex: 0 0 auto !important;
+}
+
+.floating-whatsapp span {
+  display: inline-block !important;
+  color: #ffffff !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+}
+
+.btn-whatsapp {
+  letter-spacing: .2px !important;
+}
+
+@keyframes cardFloatIn {
+  from { opacity: 0; transform: translateY(28px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes softBusinessGlow {
+  from { opacity: .58; transform: scale(.99); }
+  to { opacity: 1; transform: scale(1.01); }
+}
+
+@media (max-width: 900px) {
+  .other-business-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .other-business-card {
+    grid-template-columns: 125px 1fr !important;
+    padding: 26px !important;
+  }
+  .clean-logo-box,
+  .business-logo-box {
+    width: 116px !important;
+    height: 116px !important;
+    min-width: 116px !important;
+  }
+  .business-logo-box img {
+    width: 92px !important;
+    height: 92px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .other-business-section {
+    padding: 58px 14px !important;
+  }
+  .other-business-section::before {
+    inset: 10px !important;
+    border-radius: 24px !important;
+  }
+  .other-business-card {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    justify-items: center !important;
+    padding: 24px 18px !important;
+  }
+  .floating-whatsapp {
+    right: 12px !important;
+    bottom: 12px !important;
+    min-width: 142px !important;
+    height: 52px !important;
+    padding: 0 14px 0 12px !important;
+  }
+  .floating-whatsapp svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  .floating-whatsapp span {
+    font-size: 14px !important;
+  }
+}
+
+
+/* Final clean social icon + product button + other business logo fixes */
+.nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.nav-social-icon {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  background: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(67, 34, 13, 0.12) !important;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease !important;
+}
+
+.nav-social-icon svg {
+  width: 21px !important;
+  height: 21px !important;
+  display: block !important;
+  fill: currentColor !important;
+}
+
+.nav-social-icon.instagram-icon {
+  color: #d62976 !important;
+}
+
+.nav-social-icon.whatsapp-icon {
+  color: #25D366 !important;
+}
+
+.nav-social-icon:hover {
+  transform: translateY(-3px) scale(1.05) !important;
+  background: #ffffff !important;
+  box-shadow: 0 12px 24px rgba(67, 34, 13, 0.18) !important;
+}
+
+/* Hide any old product WhatsApp/Know More buttons that may remain */
+.type-card .btn-whatsapp,
+.product-card .btn-whatsapp,
+.category-card .btn-whatsapp,
+.feature-card .btn-whatsapp,
+.product-detail .btn-whatsapp,
+.hero-actions .btn-whatsapp,
+.page-hero .btn-whatsapp {
+  display: none !important;
+}
+
+/* Keep business logo cards clean white. No dark hover, no inner border. */
+.other-business-card,
+.other-business-card:hover,
+.other-business-card:focus-within {
+  background: #ffffff !important;
+  color: inherit !important;
+  border-color: rgba(212, 175, 55, 0.22) !important;
+}
+
+.other-business-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 24px 55px rgba(78, 40, 11, 0.15) !important;
+}
+
+.business-logo-box,
+.clean-logo-box,
+.business-logo-box:hover,
+.clean-logo-box:hover,
+.other-business-card:hover .business-logo-box,
+.other-business-card:hover .clean-logo-box {
+  background: #ffffff !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: 0 12px 30px rgba(91, 45, 12, 0.09) !important;
+}
+
+.business-logo-box::before,
+.clean-logo-box::before,
+.business-logo-box::after,
+.clean-logo-box::after {
+  display: none !important;
+  content: none !important;
+}
+
+.business-logo-box img,
+.clean-logo-box img,
+.business-logo-box img:hover,
+.clean-logo-box img:hover,
+.other-business-card:hover .business-logo-box img,
+.other-business-card:hover .clean-logo-box img {
+  background: #ffffff !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+.business-link,
+.business-link:hover,
+.business-link:focus {
+  background: #ffffff !important;
+  color: #4b2208 !important;
+  border: 1px solid rgba(212, 175, 55, 0.38) !important;
+  box-shadow: 0 10px 22px rgba(78, 40, 11, 0.10) !important;
+}
+
+@media (max-width: 768px) {
+  .nav-social-icon {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .nav-social-icon svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+}
+
+/* === FINAL UPDATE: bigger readable paragraph text + larger Sarvathaa logo === */
+body p,
+.section-subtitle,
+.about-content p,
+.type-card p,
+.product-card p,
+.category-card p,
+.quality-grid p,
+.contact-card p,
+.footer-brand-block p,
+.business-card-content p,
+.other-business-card p {
+  font-size: 1.08rem !important;
+  line-height: 1.8 !important;
+}
+
+.hero p,
+.detail-content p {
+  font-size: 1.15rem !important;
+  line-height: 1.75 !important;
+}
+
+.business-card-content p,
+.other-business-card p {
+  font-size: 1.10rem !important;
+  font-weight: 500 !important;
+  color: #5f3f22 !important;
+}
+
+.sarvathaa-card .business-logo-box,
+.sarvathaa-card .clean-logo-box {
+  width: 190px !important;
+  height: 190px !important;
+  min-width: 190px !important;
+}
+
+.sarvathaa-card .business-logo-box img,
+.sarvathaa-card .clean-logo-box img {
+  width: 172px !important;
+  height: 172px !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 768px) {
+  body p,
+  .section-subtitle,
+  .about-content p,
+  .type-card p,
+  .product-card p,
+  .category-card p,
+  .quality-grid p,
+  .contact-card p,
+  .footer-brand-block p,
+  .business-card-content p,
+  .other-business-card p {
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+  }
+
+  .hero p,
+  .detail-content p {
+    font-size: 1.05rem !important;
+  }
+
+  .sarvathaa-card .business-logo-box,
+  .sarvathaa-card .clean-logo-box {
+    width: 165px !important;
+    height: 165px !important;
+    min-width: 165px !important;
+  }
+
+  .sarvathaa-card .business-logo-box img,
+  .sarvathaa-card .clean-logo-box img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+}
+
+/* === FINAL FIX: Sarvathaa logo aligned like Osun's card === */
+.sarvathaa-card {
+  grid-template-columns: 205px minmax(0, 1fr) !important;
+  align-items: center !important;
+}
+
+.sarvathaa-card .business-logo-box,
+.sarvathaa-card .clean-logo-box {
+  justify-self: center !important;
+  align-self: center !important;
+  margin: 0 auto !important;
+  width: 190px !important;
+  height: 190px !important;
+  min-width: 190px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sarvathaa-card .business-logo-box img,
+.sarvathaa-card .clean-logo-box img {
+  width: 176px !important;
+  max-width: 176px !important;
+  height: auto !important;
+  max-height: 154px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 900px) {
+  .sarvathaa-card {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  .sarvathaa-card .business-logo-box,
+  .sarvathaa-card .clean-logo-box {
+    width: 172px !important;
+    height: 172px !important;
+    min-width: 172px !important;
+    margin: 0 auto 8px auto !important;
+  }
+
+  .sarvathaa-card .business-logo-box img,
+  .sarvathaa-card .clean-logo-box img {
+    width: 158px !important;
+    max-width: 158px !important;
+    max-height: 138px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .sarvathaa-card .business-logo-box,
+  .sarvathaa-card .clean-logo-box {
+    width: 158px !important;
+    height: 158px !important;
+    min-width: 158px !important;
+  }
+
+  .sarvathaa-card .business-logo-box img,
+  .sarvathaa-card .clean-logo-box img {
+    width: 146px !important;
+    max-width: 146px !important;
+    max-height: 128px !important;
+  }
+}
+
+/* === FINAL REQUEST: same Osun's/Sarvathaa box size + bigger paragraph text === */
+.other-business-card.osuns-card,
+.other-business-card.sarvathaa-card {
+  min-height: 270px !important;
+}
+
+.other-business-card.osuns-card .business-logo-box,
+.other-business-card.osuns-card .clean-logo-box,
+.other-business-card.sarvathaa-card .business-logo-box,
+.other-business-card.sarvathaa-card .clean-logo-box {
+  width: 150px !important;
+  height: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+  max-height: 150px !important;
+  padding: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.other-business-card.osuns-card .business-logo-box img,
+.other-business-card.osuns-card .clean-logo-box img,
+.other-business-card.sarvathaa-card .business-logo-box img,
+.other-business-card.sarvathaa-card .clean-logo-box img {
+  width: 122px !important;
+  height: 122px !important;
+  max-width: 122px !important;
+  max-height: 122px !important;
+  object-fit: contain !important;
+}
+
+.section-subtitle,
+.about-content p,
+.type-card p,
+.business-card-content p,
+.footer-brand-block p,
+.contact-card p,
+.quality-grid p,
+main p {
+  font-size: clamp(1.06rem, 1.35vw, 1.18rem) !important;
+  line-height: 1.82 !important;
+  font-weight: 500 !important;
+}
+
+.hero p,
+.detail-content p {
+  font-size: clamp(1.10rem, 1.5vw, 1.25rem) !important;
+  line-height: 1.75 !important;
+  font-weight: 600 !important;
+}
+
+.business-card-content p {
+  color: #5b3a1f !important;
+}
+
+@media (max-width: 900px) {
+  .other-business-card.osuns-card .business-logo-box,
+  .other-business-card.osuns-card .clean-logo-box,
+  .other-business-card.sarvathaa-card .business-logo-box,
+  .other-business-card.sarvathaa-card .clean-logo-box {
+    width: 130px !important;
+    height: 130px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
+    max-height: 130px !important;
+  }
+
+  .other-business-card.osuns-card .business-logo-box img,
+  .other-business-card.osuns-card .clean-logo-box img,
+  .other-business-card.sarvathaa-card .business-logo-box img,
+  .other-business-card.sarvathaa-card .clean-logo-box img {
+    width: 106px !important;
+    height: 106px !important;
+    max-width: 106px !important;
+    max-height: 106px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .section-subtitle,
+  .about-content p,
+  .type-card p,
+  .business-card-content p,
+  .footer-brand-block p,
+  .contact-card p,
+  .quality-grid p,
+  main p {
+    font-size: 1.02rem !important;
+    line-height: 1.72 !important;
+  }
+}
+
+/* === FINAL TUNE: make Sarvathaa logo visually bigger while keeping same box size as Osun's === */
+.other-business-card.sarvathaa-card .business-logo-box,
+.other-business-card.sarvathaa-card .clean-logo-box {
+  width: 150px !important;
+  height: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
+  max-height: 150px !important;
+  padding: 4px !important;
+}
+
+.other-business-card.sarvathaa-card .business-logo-box img,
+.other-business-card.sarvathaa-card .clean-logo-box img {
+  width: 148px !important;
+  height: auto !important;
+  max-width: 148px !important;
+  max-height: 138px !important;
+  object-fit: contain !important;
+  transform: scale(1.08) !important;
+}
+
+/* Keep paragraph text big and clear */
+p,
+main p,
+.section-subtitle,
+.about-content p,
+.type-card p,
+.product-card p,
+.category-card p,
+.business-card-content p,
+.other-business-card p,
+.footer-brand-block p,
+.contact-card p,
+.quality-grid p {
+  font-size: clamp(1.08rem, 1.45vw, 1.22rem) !important;
+  line-height: 1.85 !important;
+  font-weight: 500 !important;
+}
+
+@media (max-width: 900px) {
+  .other-business-card.sarvathaa-card .business-logo-box,
+  .other-business-card.sarvathaa-card .clean-logo-box {
+    width: 130px !important;
+    height: 130px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
+    max-height: 130px !important;
+    padding: 3px !important;
+  }
+
+  .other-business-card.sarvathaa-card .business-logo-box img,
+  .other-business-card.sarvathaa-card .clean-logo-box img {
+    width: 128px !important;
+    max-width: 128px !important;
+    max-height: 118px !important;
+    transform: scale(1.08) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  p,
+  main p,
+  .section-subtitle,
+  .about-content p,
+  .type-card p,
+  .product-card p,
+  .category-card p,
+  .business-card-content p,
+  .other-business-card p,
+  .footer-brand-block p,
+  .contact-card p,
+  .quality-grid p {
+    font-size: 1.04rem !important;
+    line-height: 1.75 !important;
+  }
+}
+
+/* === FINAL FIX: Sarvathaa logo visually bigger like Osun's + readable paragraphs === */
+.sarvathaa-card .business-logo-box,
+.sarvathaa-card .clean-logo-box {
+  width: 230px !important;
+  height: 190px !important;
+  min-width: 230px !important;
+  padding: 10px !important;
+}
+
+.sarvathaa-card .business-logo-box img,
+.sarvathaa-card .clean-logo-box img {
+  width: 215px !important;
+  height: auto !important;
+  max-width: none !important;
+  object-fit: contain !important;
+}
+
+body p,
+.section-subtitle,
+.about-content p,
+.type-card p,
+.product-card p,
+.category-card p,
+.quality-grid p,
+.contact-card p,
+.footer-brand-block p,
+.business-card-content p,
+.other-business-card p {
+  font-size: 1.16rem !important;
+  line-height: 1.85 !important;
+}
+
+.business-card-content p,
+.other-business-card p {
+  font-size: 1.17rem !important;
+  font-weight: 600 !important;
+}
+
+@media (max-width: 768px) {
+  .sarvathaa-card .business-logo-box,
+  .sarvathaa-card .clean-logo-box {
+    width: 190px !important;
+    height: 160px !important;
+    min-width: 190px !important;
+  }
+
+  .sarvathaa-card .business-logo-box img,
+  .sarvathaa-card .clean-logo-box img {
+    width: 178px !important;
+    height: auto !important;
+    max-width: none !important;
+  }
+
+  body p,
+  .section-subtitle,
+  .about-content p,
+  .type-card p,
+  .product-card p,
+  .category-card p,
+  .quality-grid p,
+  .contact-card p,
+  .footer-brand-block p,
+  .business-card-content p,
+  .other-business-card p {
+    font-size: 1.07rem !important;
+    line-height: 1.78 !important;
+  }
+}
+
+/* === FINAL USER FIX: remove product page breadcrumb + no color change on other-business touch === */
+.breadcrumb,
+.page-hero .breadcrumb,
+.product-hero .breadcrumb,
+nav.breadcrumb,
+nav[aria-label="Breadcrumb"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.other-business-card,
+.other-business-card:hover,
+.other-business-card:focus,
+.other-business-card:active,
+.other-business-card:focus-within,
+.other-business-card.osuns-card,
+.other-business-card.osuns-card:hover,
+.other-business-card.osuns-card:focus,
+.other-business-card.osuns-card:active,
+.other-business-card.sarvathaa-card,
+.other-business-card.sarvathaa-card:hover,
+.other-business-card.sarvathaa-card:focus,
+.other-business-card.sarvathaa-card:active {
+  background: #ffffff !important;
+  color: inherit !important;
+  border-color: rgba(212, 175, 55, 0.22) !important;
+  transform: none !important;
+  box-shadow: 0 18px 48px rgba(78, 40, 11, 0.13) !important;
+}
+
+.other-business-card::after,
+.other-business-card:hover::after,
+.other-business-card:active::after,
+.other-business-card:focus::after {
+  transform: none !important;
+  opacity: 1 !important;
+  background: rgba(212, 175, 55, 0.13) !important;
+}
+
+.business-logo-box,
+.clean-logo-box,
+.business-logo-box:hover,
+.clean-logo-box:hover,
+.business-logo-box:active,
+.clean-logo-box:active,
+.other-business-card:hover .business-logo-box,
+.other-business-card:hover .clean-logo-box,
+.other-business-card:active .business-logo-box,
+.other-business-card:active .clean-logo-box {
+  background: #ffffff !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: 0 12px 30px rgba(91, 45, 12, 0.09) !important;
+}
+
+.business-logo-box img,
+.clean-logo-box img,
+.business-logo-box img:hover,
+.clean-logo-box img:hover,
+.business-logo-box img:active,
+.clean-logo-box img:active,
+.other-business-card:hover .business-logo-box img,
+.other-business-card:hover .clean-logo-box img,
+.other-business-card:active .business-logo-box img,
+.other-business-card:active .clean-logo-box img {
+  background: #ffffff !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.business-link,
+.business-link:hover,
+.business-link:focus,
+.business-link:active,
+.business-link:visited {
+  background: #ffffff !important;
+  color: #4b2208 !important;
+  border: 1px solid rgba(212, 175, 55, 0.38) !important;
+  box-shadow: 0 10px 22px rgba(78, 40, 11, 0.10) !important;
+  transform: none !important;
+  text-decoration: none !important;
+}
+
+/* === FINAL FIX: only website button is clickable, no color change on touch === */
+.other-business-card,
+.other-business-card *,
+.business-link,
+.business-link:link,
+.business-link:visited,
+.business-link:hover,
+.business-link:focus,
+.business-link:active {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.other-business-card,
+.other-business-card:hover,
+.other-business-card:focus,
+.other-business-card:active,
+.other-business-card:focus-within,
+.other-business-card.osuns-card,
+.other-business-card.osuns-card:hover,
+.other-business-card.osuns-card:focus,
+.other-business-card.osuns-card:active,
+.other-business-card.sarvathaa-card,
+.other-business-card.sarvathaa-card:hover,
+.other-business-card.sarvathaa-card:focus,
+.other-business-card.sarvathaa-card:active,
+.other-business-card.sarvathaa-card:focus-within {
+  background: #ffffff !important;
+  color: inherit !important;
+  border-color: rgba(212, 175, 55, 0.22) !important;
+  transform: none !important;
+  box-shadow: 0 18px 48px rgba(78, 40, 11, 0.13) !important;
+  cursor: default !important;
+}
+
+.other-business-card .business-logo-box,
+.other-business-card .clean-logo-box,
+.other-business-card .business-card-content h3,
+.other-business-card .business-card-content p,
+.other-business-card .business-label {
+  pointer-events: none !important;
+}
+
+.business-link,
+.business-link:link,
+.business-link:visited,
+.business-link:hover,
+.business-link:focus,
+.business-link:active {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  background: #ffffff !important;
+  color: #4b2208 !important;
+  border: 1px solid rgba(212, 175, 55, 0.38) !important;
+  box-shadow: 0 10px 22px rgba(78, 40, 11, 0.10) !important;
+  transform: none !important;
+  text-decoration: none !important;
+  outline: none !important;
+  transition: none !important;
+}
+
+.business-link:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.65) !important;
+  outline-offset: 3px !important;
+}
+
+/* === FINAL CORRECTION: website buttons change color when touched/clicked === */
+.business-link,
+.business-link:link,
+.business-link:visited {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  background: #ffffff !important;
+  color: #4b2208 !important;
+  border: 1px solid rgba(212, 175, 55, 0.50) !important;
+  box-shadow: 0 10px 22px rgba(78, 40, 11, 0.10) !important;
+  transform: none !important;
+  text-decoration: none !important;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
+  -webkit-tap-highlight-color: rgba(75, 34, 8, 0.18) !important;
+}
+
+.business-link:hover,
+.business-link:focus,
+.business-link:active,
+.business-link:focus-visible {
+  background: #4b2208 !important;
+  color: #ffffff !important;
+  border-color: #4b2208 !important;
+  box-shadow: 0 14px 28px rgba(75, 34, 8, 0.24) !important;
+  transform: translateY(-2px) !important;
+  text-decoration: none !important;
+}
+
+/* Keep card/logo area normal; only the website button changes color */
+.other-business-card,
+.other-business-card:hover,
+.other-business-card:focus,
+.other-business-card:active,
+.other-business-card:focus-within {
+  background: #ffffff !important;
+  color: inherit !important;
+  border-color: rgba(212, 175, 55, 0.22) !important;
+}
+
+/* === FINAL FIX: Our Other Business top-corner logo placement + footer font consistency === */
+.other-business-card {
+  align-items: flex-start !important;
+  grid-template-columns: 210px minmax(0, 1fr) !important;
+  gap: 24px !important;
+  padding: 28px 30px !important;
+  min-height: 230px !important;
+}
+
+.other-business-card .business-logo-box,
+.other-business-card .clean-logo-box {
+  align-self: flex-start !important;
+  justify-self: flex-start !important;
+  margin: 0 !important;
+}
+
+.other-business-card .business-card-content {
+  align-self: flex-start !important;
+  padding-top: 2px !important;
+}
+
+.other-business-card.osuns-card .business-logo-box,
+.other-business-card.osuns-card .clean-logo-box {
+  width: 165px !important;
+  height: 165px !important;
+  min-width: 165px !important;
+  max-width: 165px !important;
+  max-height: 165px !important;
+}
+
+.other-business-card.osuns-card .business-logo-box img,
+.other-business-card.osuns-card .clean-logo-box img {
+  width: 135px !important;
+  height: 135px !important;
+  max-width: 135px !important;
+  max-height: 135px !important;
+}
+
+.other-business-card.sarvathaa-card .business-logo-box,
+.other-business-card.sarvathaa-card .clean-logo-box {
+  width: 205px !important;
+  height: 165px !important;
+  min-width: 205px !important;
+  max-width: 205px !important;
+  max-height: 165px !important;
+  padding: 8px !important;
+}
+
+.other-business-card.sarvathaa-card .business-logo-box img,
+.other-business-card.sarvathaa-card .clean-logo-box img {
+  width: 192px !important;
+  height: auto !important;
+  max-width: 192px !important;
+  max-height: 148px !important;
+  object-fit: contain !important;
+}
+
+.footer-brand-title,
+.footer-link-block h3,
+.footer-contact-block h3 {
+  font-family: var(--font-ui) !important;
+  font-size: 1.05rem !important;
+  line-height: 1.35 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.03em !important;
+  color: #fff7e8 !important;
+}
+
+.footer-brand-block p,
+.footer-link-block li,
+.footer-link-block a,
+.footer-contact-block p,
+.footer-contact-block a,
+.footer-phone,
+.footer-wa {
+  font-family: var(--font-ui) !important;
+  font-size: 0.96rem !important;
+  line-height: 1.65 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+}
+
+.footer-contact-block .footer-phone,
+.footer-contact-block .footer-wa {
+  display: inline-block !important;
+  width: auto !important;
+}
+
+@media (max-width: 900px) {
+  .other-business-card {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 26px !important;
+    align-items: flex-start !important;
+  }
+
+  .other-business-card .business-logo-box,
+  .other-business-card .clean-logo-box {
+    justify-self: flex-start !important;
+  }
+
+  .other-business-card.osuns-card .business-logo-box,
+  .other-business-card.osuns-card .clean-logo-box {
+    width: 145px !important;
+    height: 145px !important;
+    min-width: 145px !important;
+    max-width: 145px !important;
+    max-height: 145px !important;
+  }
+
+  .other-business-card.osuns-card .business-logo-box img,
+  .other-business-card.osuns-card .clean-logo-box img {
+    width: 118px !important;
+    height: 118px !important;
+    max-width: 118px !important;
+    max-height: 118px !important;
+  }
+
+  .other-business-card.sarvathaa-card .business-logo-box,
+  .other-business-card.sarvathaa-card .clean-logo-box {
+    width: 190px !important;
+    height: 145px !important;
+    min-width: 190px !important;
+    max-width: 190px !important;
+    max-height: 145px !important;
+  }
+
+  .other-business-card.sarvathaa-card .business-logo-box img,
+  .other-business-card.sarvathaa-card .clean-logo-box img {
+    width: 178px !important;
+    max-width: 178px !important;
+    max-height: 130px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .other-business-card {
+    padding: 22px !important;
+    text-align: left !important;
+  }
+
+  .footer-brand-title,
+  .footer-link-block h3,
+  .footer-contact-block h3 {
+    font-size: 1.02rem !important;
+  }
+
+  .footer-brand-block p,
+  .footer-link-block li,
+  .footer-link-block a,
+  .footer-contact-block p,
+  .footer-contact-block a,
+  .footer-phone,
+  .footer-wa {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* === FINAL FOOTER COLOR + BUSINESS BUTTON ALIGNMENT FIX === */
+.site-footer .footer-brand-title,
+.site-footer .footer-link-block h3,
+.site-footer .footer-contact-block h3 {
+  color: #4b2208 !important;
+  font-family: var(--font-ui) !important;
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: none !important;
+}
+
+.site-footer .footer-link-block a,
+.site-footer .footer-contact-block a,
+.site-footer .footer-brand-block p,
+.site-footer .footer-contact-block p,
+.site-footer .footer-bottom {
+  color: #3a2218 !important;
+}
+
+.other-business-card {
+  align-items: stretch !important;
+  min-height: 238px !important;
+  padding: 28px !important;
+  gap: 22px !important;
+}
+
+.business-card-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  height: 100% !important;
+  min-height: 178px !important;
+}
+
+.business-card-content p {
+  margin-bottom: 18px !important;
+}
+
+.business-link {
+  margin-top: auto !important;
+  min-width: 190px !important;
+  height: 46px !important;
+  padding: 0 22px !important;
+  align-self: flex-start !important;
+}
+
+@media (max-width: 900px) {
+  .other-business-card {
+    align-items: stretch !important;
+    min-height: 220px !important;
+    padding: 24px !important;
+  }
+  .business-card-content {
+    min-height: 158px !important;
+  }
+  .business-link {
+    min-width: 180px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .other-business-card {
+    min-height: auto !important;
+  }
+  .business-card-content {
+    align-items: center !important;
+    text-align: center !important;
+    min-height: auto !important;
+  }
+  .business-link {
+    align-self: center !important;
+    width: min(100%, 230px) !important;
+    margin-top: 12px !important;
+  }
+}
