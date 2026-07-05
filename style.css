@@ -3127,3 +3127,495 @@ nav[aria-label="Breadcrumb"] {
     margin-top: 12px !important;
   }
 }
+
+/* === FINAL FIX: Other Business logos only, no visible logo box === */
+.other-business-card {
+  grid-template-columns: 145px minmax(0, 1fr) !important;
+  gap: 18px !important;
+}
+
+.other-business-card .business-logo-box,
+.other-business-card .clean-logo-box,
+.other-business-card.osuns-card .business-logo-box,
+.other-business-card.osuns-card .clean-logo-box,
+.other-business-card.sarvathaa-card .business-logo-box,
+.other-business-card.sarvathaa-card .clean-logo-box,
+.other-business-card:hover .business-logo-box,
+.other-business-card:hover .clean-logo-box {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  min-width: 0 !important;
+  align-self: flex-start !important;
+  justify-self: flex-start !important;
+}
+
+.other-business-card .business-logo-box::before,
+.other-business-card .clean-logo-box::before,
+.other-business-card .business-logo-box::after,
+.other-business-card .clean-logo-box::after {
+  display: none !important;
+  content: none !important;
+}
+
+.other-business-card.osuns-card .business-logo-box,
+.other-business-card.osuns-card .clean-logo-box {
+  width: 118px !important;
+  height: 118px !important;
+  max-width: 118px !important;
+  max-height: 118px !important;
+}
+
+.other-business-card.osuns-card .business-logo-box img,
+.other-business-card.osuns-card .clean-logo-box img {
+  width: 112px !important;
+  height: 112px !important;
+  max-width: 112px !important;
+  max-height: 112px !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.other-business-card.sarvathaa-card .business-logo-box,
+.other-business-card.sarvathaa-card .clean-logo-box {
+  width: 145px !important;
+  height: 92px !important;
+  max-width: 145px !important;
+  max-height: 92px !important;
+}
+
+.other-business-card.sarvathaa-card .business-logo-box img,
+.other-business-card.sarvathaa-card .clean-logo-box img {
+  width: 142px !important;
+  height: auto !important;
+  max-width: 142px !important;
+  max-height: 88px !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.other-business-card:hover .business-logo-box img,
+.other-business-card:hover .clean-logo-box img,
+.other-business-card:active .business-logo-box img,
+.other-business-card:active .clean-logo-box img {
+  transform: none !important;
+  background: transparent !important;
+}
+
+@media (max-width: 900px) {
+  .other-business-card {
+    grid-template-columns: 1fr !important;
+  }
+  .other-business-card .business-logo-box,
+  .other-business-card .clean-logo-box,
+  .other-business-card.osuns-card .business-logo-box,
+  .other-business-card.osuns-card .clean-logo-box,
+  .other-business-card.sarvathaa-card .business-logo-box,
+  .other-business-card.sarvathaa-card .clean-logo-box {
+    justify-self: flex-start !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .other-business-card .business-logo-box,
+  .other-business-card .clean-logo-box,
+  .other-business-card.osuns-card .business-logo-box,
+  .other-business-card.osuns-card .clean-logo-box,
+  .other-business-card.sarvathaa-card .business-logo-box,
+  .other-business-card.sarvathaa-card .clean-logo-box {
+    justify-self: center !important;
+  }
+}
+
+/* === FINAL FIX: Other Business logo first, content neatly after logo === */
+.other-business-grid {
+  align-items: stretch !important;
+}
+
+.other-business-card.osuns-card,
+.other-business-card.sarvathaa-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 18px !important;
+  text-align: center !important;
+  min-height: 360px !important;
+  padding: 34px 30px !important;
+}
+
+.other-business-card.osuns-card .business-logo-box,
+.other-business-card.osuns-card .clean-logo-box,
+.other-business-card.sarvathaa-card .business-logo-box,
+.other-business-card.sarvathaa-card .clean-logo-box {
+  margin: 0 auto 4px auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  justify-self: center !important;
+  align-self: center !important;
+  flex: 0 0 auto !important;
+}
+
+.other-business-card.osuns-card .business-logo-box,
+.other-business-card.osuns-card .clean-logo-box {
+  width: 105px !important;
+  height: 105px !important;
+  min-width: 105px !important;
+  max-width: 105px !important;
+  max-height: 105px !important;
+}
+
+.other-business-card.osuns-card .business-logo-box img,
+.other-business-card.osuns-card .clean-logo-box img {
+  width: 102px !important;
+  height: 102px !important;
+  max-width: 102px !important;
+  max-height: 102px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+.other-business-card.sarvathaa-card .business-logo-box,
+.other-business-card.sarvathaa-card .clean-logo-box {
+  width: 128px !important;
+  height: 82px !important;
+  min-width: 128px !important;
+  max-width: 128px !important;
+  max-height: 82px !important;
+}
+
+.other-business-card.sarvathaa-card .business-logo-box img,
+.other-business-card.sarvathaa-card .clean-logo-box img {
+  width: 126px !important;
+  height: auto !important;
+  max-width: 126px !important;
+  max-height: 78px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+.other-business-card .business-card-content {
+  width: 100% !important;
+  max-width: 520px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.other-business-card .business-label {
+  margin: 0 auto 10px auto !important;
+}
+
+.other-business-card .business-card-content h3 {
+  text-align: center !important;
+  margin: 0 0 10px 0 !important;
+}
+
+.other-business-card .business-card-content p {
+  text-align: center !important;
+  margin: 0 auto 18px auto !important;
+}
+
+.other-business-card .business-link {
+  margin: 0 auto !important;
+  align-self: center !important;
+}
+
+@media (max-width: 900px) {
+  .other-business-card.osuns-card,
+  .other-business-card.sarvathaa-card {
+    min-height: auto !important;
+    padding: 28px 22px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .other-business-card.osuns-card .business-logo-box,
+  .other-business-card.osuns-card .clean-logo-box {
+    width: 96px !important;
+    height: 96px !important;
+    min-width: 96px !important;
+  }
+
+  .other-business-card.osuns-card .business-logo-box img,
+  .other-business-card.osuns-card .clean-logo-box img {
+    width: 94px !important;
+    height: 94px !important;
+  }
+
+  .other-business-card.sarvathaa-card .business-logo-box,
+  .other-business-card.sarvathaa-card .clean-logo-box {
+    width: 118px !important;
+    height: 76px !important;
+    min-width: 118px !important;
+  }
+
+  .other-business-card.sarvathaa-card .business-logo-box img,
+  .other-business-card.sarvathaa-card .clean-logo-box img {
+    width: 116px !important;
+    max-height: 72px !important;
+  }
+}
+
+/* === FINAL REQUEST FIX: Sarvathaa logo same visual size as Osun's + equal desktop nav buttons === */
+@media (min-width: 901px) {
+  .kron-nav {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    column-gap: 18px !important;
+    min-height: 104px !important;
+  }
+
+  .nav-left-col,
+  .nav-right-col {
+    min-width: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .nav-left-col {
+    justify-content: flex-end !important;
+  }
+
+  .nav-right-col {
+    justify-content: flex-start !important;
+    gap: 14px !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .nav-links > li {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .nav-links a {
+    min-height: 42px !important;
+    height: 42px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 13px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .dropdown-menu a {
+    height: auto !important;
+    min-height: 36px !important;
+    justify-content: flex-start !important;
+    padding: 9px 12px !important;
+  }
+
+  .nav-actions {
+    height: 42px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .nav-social-icon {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
+.other-business-card.osuns-card .business-logo-box,
+.other-business-card.osuns-card .clean-logo-box,
+.other-business-card.sarvathaa-card .business-logo-box,
+.other-business-card.sarvathaa-card .clean-logo-box {
+  width: 108px !important;
+  height: 108px !important;
+  min-width: 108px !important;
+  max-width: 108px !important;
+  max-height: 108px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+.other-business-card.osuns-card .business-logo-box img,
+.other-business-card.osuns-card .clean-logo-box img {
+  width: 104px !important;
+  height: 104px !important;
+  max-width: 104px !important;
+  max-height: 104px !important;
+  object-fit: contain !important;
+}
+
+.other-business-card.sarvathaa-card .business-logo-box img,
+.other-business-card.sarvathaa-card .clean-logo-box img {
+  width: auto !important;
+  height: 104px !important;
+  max-width: 150px !important;
+  max-height: 104px !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 560px) {
+  .other-business-card.osuns-card .business-logo-box,
+  .other-business-card.osuns-card .clean-logo-box,
+  .other-business-card.sarvathaa-card .business-logo-box,
+  .other-business-card.sarvathaa-card .clean-logo-box {
+    width: 96px !important;
+    height: 96px !important;
+    min-width: 96px !important;
+    max-width: 96px !important;
+    max-height: 96px !important;
+  }
+
+  .other-business-card.osuns-card .business-logo-box img,
+  .other-business-card.osuns-card .clean-logo-box img {
+    width: 94px !important;
+    height: 94px !important;
+    max-width: 94px !important;
+    max-height: 94px !important;
+  }
+
+  .other-business-card.sarvathaa-card .business-logo-box img,
+  .other-business-card.sarvathaa-card .clean-logo-box img {
+    width: auto !important;
+    height: 94px !important;
+    max-width: 136px !important;
+    max-height: 94px !important;
+  }
+}
+
+/* === FINAL FIX: remove Sarvathaa/other business touch zoom === */
+.other-business-card,
+.other-business-card:hover,
+.other-business-card:active,
+.other-business-card:focus,
+.other-business-card:focus-within,
+.other-business-card.sarvathaa-card,
+.other-business-card.sarvathaa-card:hover,
+.other-business-card.sarvathaa-card:active,
+.other-business-card.sarvathaa-card:focus,
+.other-business-card.sarvathaa-card:focus-within {
+  transform: none !important;
+  animation: none !important;
+}
+
+.other-business-card::after,
+.other-business-card:hover::after,
+.other-business-card:active::after,
+.other-business-card.sarvathaa-card::after,
+.other-business-card.sarvathaa-card:hover::after,
+.other-business-card.sarvathaa-card:active::after {
+  transform: none !important;
+  animation: none !important;
+}
+
+.business-logo-box,
+.clean-logo-box,
+.business-logo-box:hover,
+.clean-logo-box:hover,
+.business-logo-box:active,
+.clean-logo-box:active,
+.other-business-card:hover .business-logo-box,
+.other-business-card:hover .clean-logo-box,
+.other-business-card:active .business-logo-box,
+.other-business-card:active .clean-logo-box {
+  transform: none !important;
+  animation: none !important;
+}
+
+.business-logo-box img,
+.clean-logo-box img,
+.business-logo-box img:hover,
+.clean-logo-box img:hover,
+.business-logo-box img:active,
+.clean-logo-box img:active,
+.other-business-card:hover .business-logo-box img,
+.other-business-card:hover .clean-logo-box img,
+.other-business-card:active .business-logo-box img,
+.other-business-card:active .clean-logo-box img {
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+.sarvathaa-card *,
+.sarvathaa-card *:hover,
+.sarvathaa-card *:active,
+.sarvathaa-card *:focus {
+  animation: none !important;
+}
+
+/* === FINAL EXACT FIX: Sarvathaa hover same as Osun's, no zoom-out/scale change === */
+.other-business-card.sarvathaa-card,
+.other-business-card.sarvathaa-card:hover,
+.other-business-card.sarvathaa-card:active,
+.other-business-card.sarvathaa-card:focus,
+.other-business-card.sarvathaa-card:focus-within {
+  transform: none !important;
+  animation: none !important;
+  transition: box-shadow .25s ease, border-color .25s ease, background .25s ease !important;
+}
+
+.other-business-card.sarvathaa-card .business-logo-box,
+.other-business-card.sarvathaa-card .clean-logo-box,
+.other-business-card.sarvathaa-card:hover .business-logo-box,
+.other-business-card.sarvathaa-card:hover .clean-logo-box,
+.other-business-card.sarvathaa-card:active .business-logo-box,
+.other-business-card.sarvathaa-card:active .clean-logo-box {
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.other-business-card.sarvathaa-card .business-logo-box img,
+.other-business-card.sarvathaa-card .clean-logo-box img,
+.other-business-card.sarvathaa-card .business-logo-box img:hover,
+.other-business-card.sarvathaa-card .clean-logo-box img:hover,
+.other-business-card.sarvathaa-card:hover .business-logo-box img,
+.other-business-card.sarvathaa-card:hover .clean-logo-box img,
+.other-business-card.sarvathaa-card:active .business-logo-box img,
+.other-business-card.sarvathaa-card:active .clean-logo-box img,
+.other-business-card.sarvathaa-card:focus .business-logo-box img,
+.other-business-card.sarvathaa-card:focus .clean-logo-box img {
+  transform: none !important;
+  scale: 1 !important;
+  animation: none !important;
+  transition: none !important;
+  filter: none !important;
+  object-fit: contain !important;
+}
