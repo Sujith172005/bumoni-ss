@@ -3619,3 +3619,176 @@ nav[aria-label="Breadcrumb"] {
   filter: none !important;
   object-fit: contain !important;
 }
+
+/* === FINAL FIX: Other Business logos top-left and labels top-right === */
+.other-business-card.osuns-card,
+.other-business-card.sarvathaa-card {
+  display: grid !important;
+  grid-template-columns: 150px minmax(0, 1fr) !important;
+  align-items: start !important;
+  justify-items: stretch !important;
+  column-gap: 28px !important;
+  padding-top: 28px !important;
+}
+
+.other-business-card.osuns-card .business-logo-box,
+.other-business-card.osuns-card .clean-logo-box,
+.other-business-card.sarvathaa-card .business-logo-box,
+.other-business-card.sarvathaa-card .clean-logo-box {
+  justify-self: start !important;
+  align-self: start !important;
+  margin: 0 !important;
+}
+
+.other-business-card.osuns-card .business-card-content,
+.other-business-card.sarvathaa-card .business-card-content {
+  width: 100% !important;
+  align-self: start !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.other-business-card.osuns-card .business-label,
+.other-business-card.sarvathaa-card .business-label {
+  align-self: flex-end !important;
+  margin: 0 0 10px auto !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+
+.other-business-card.osuns-card .business-card-content h3,
+.other-business-card.sarvathaa-card .business-card-content h3,
+.other-business-card.osuns-card .business-card-content p,
+.other-business-card.sarvathaa-card .business-card-content p,
+.other-business-card.osuns-card .business-link,
+.other-business-card.sarvathaa-card .business-link {
+  align-self: flex-start !important;
+  text-align: left !important;
+}
+
+@media (max-width: 900px) {
+  .other-business-card.osuns-card,
+  .other-business-card.sarvathaa-card {
+    grid-template-columns: 128px minmax(0, 1fr) !important;
+    column-gap: 18px !important;
+    text-align: left !important;
+    justify-items: stretch !important;
+  }
+
+  .other-business-card.osuns-card .business-label,
+  .other-business-card.sarvathaa-card .business-label {
+    align-self: flex-start !important;
+    margin-left: 0 !important;
+    text-align: left !important;
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .other-business-card.osuns-card,
+  .other-business-card.sarvathaa-card {
+    grid-template-columns: 1fr !important;
+    justify-items: start !important;
+    text-align: left !important;
+  }
+
+  .other-business-card.osuns-card .business-logo-box,
+  .other-business-card.osuns-card .clean-logo-box,
+  .other-business-card.sarvathaa-card .business-logo-box,
+  .other-business-card.sarvathaa-card .clean-logo-box {
+    justify-self: start !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+  .other-business-card.osuns-card .business-card-content,
+  .other-business-card.sarvathaa-card .business-card-content {
+    align-items: flex-start !important;
+  }
+}
+
+/* === FINAL FIX: Other Business order - logo/label first, heading/content/link after === */
+.other-business-card.osuns-card,
+.other-business-card.sarvathaa-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 16px !important;
+  text-align: left !important;
+}
+
+.other-business-card .business-card-top {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  margin: 0 !important;
+}
+
+.other-business-card.osuns-card .business-card-top .business-logo-box,
+.other-business-card.osuns-card .business-card-top .clean-logo-box,
+.other-business-card.sarvathaa-card .business-card-top .business-logo-box,
+.other-business-card.sarvathaa-card .business-card-top .clean-logo-box {
+  flex: 0 0 auto !important;
+  justify-self: auto !important;
+  align-self: flex-start !important;
+  margin: 0 !important;
+}
+
+.other-business-card .business-card-top .business-label {
+  align-self: flex-start !important;
+  margin: 0 0 0 auto !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+
+.other-business-card.osuns-card .business-card-content,
+.other-business-card.sarvathaa-card .business-card-content {
+  width: 100% !important;
+  display: block !important;
+  align-self: stretch !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.other-business-card.osuns-card .business-card-content h3,
+.other-business-card.sarvathaa-card .business-card-content h3,
+.other-business-card.osuns-card .business-card-content p,
+.other-business-card.sarvathaa-card .business-card-content p,
+.other-business-card.osuns-card .business-card-content .business-link,
+.other-business-card.sarvathaa-card .business-card-content .business-link {
+  text-align: left !important;
+  align-self: auto !important;
+}
+
+@media (max-width: 560px) {
+  .other-business-card .business-card-top {
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .other-business-card .business-card-top .business-label {
+    white-space: normal !important;
+    text-align: right !important;
+    max-width: 58% !important;
+  }
+}
+
+/* === FINAL FIX: center only Osuns/Sarvathaa heading in Other Businesses === */
+.other-business-card.osuns-card .business-card-content h3,
+.other-business-card.sarvathaa-card .business-card-content h3 {
+  width: 100% !important;
+  text-align: center !important;
+  display: block !important;
+}
+
+.other-business-card.osuns-card .business-card-content p,
+.other-business-card.sarvathaa-card .business-card-content p,
+.other-business-card.osuns-card .business-card-content .business-link,
+.other-business-card.sarvathaa-card .business-card-content .business-link {
+  text-align: left !important;
+}
