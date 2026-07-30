@@ -3792,3 +3792,207 @@ nav[aria-label="Breadcrumb"] {
 .other-business-card.sarvathaa-card .business-card-content .business-link {
   text-align: left !important;
 }
+
+/* =========================================================
+   FINAL COLLECTION 3 × 3 + SMALLER SUB-PRODUCT IMAGES
+   ========================================================= */
+
+/* Nine collection cards: three cards in each row on desktop. */
+#products .creation-grid,
+#products .compact-creation-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+}
+
+/* Remove older rules that centre or stretch the final card. */
+#products .compact-creation-grid > .compact-creation-card:last-child,
+#products .creation-grid > .creation-card:last-child {
+  grid-column: auto !important;
+  justify-self: stretch !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* Slightly smaller sub-product photos, fully visible and centred. */
+.type-card > img,
+.type-card img {
+  display: block !important;
+  width: 100% !important;
+  height: 220px !important;
+  padding: 20px 22px !important;
+  box-sizing: border-box !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #fffaf2 !important;
+}
+
+/* Tablet: two collection cards per row. */
+@media (max-width: 900px) {
+  #products .creation-grid,
+  #products .compact-creation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Mobile: one collection card per row and compact product photos. */
+@media (max-width: 600px) {
+  #products .creation-grid,
+  #products .compact-creation-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .type-card > img,
+  .type-card img {
+    height: 205px !important;
+    padding: 18px 20px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL SUB-PRODUCT IMAGE FIT FIX
+   Keep every product photo fully visible without cropping,
+   while using the card image area consistently.
+   ========================================================= */
+.type-card {
+  background: #ffffff !important;
+}
+
+.type-card > img,
+.type-card img {
+  display: block !important;
+  width: 100% !important;
+  height: 260px !important;
+  padding: 8px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #fffaf2 !important;
+  border-radius: 27px 27px 0 0 !important;
+}
+
+@media (max-width: 900px) {
+  .type-card > img,
+  .type-card img {
+    height: 250px !important;
+    padding: 7px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .type-card > img,
+  .type-card img {
+    height: 235px !important;
+    padding: 6px !important;
+  }
+}
+
+/* Final small placement adjustment for sub-product images */
+.type-card > img,
+.type-card img {
+  height: 250px !important;
+  padding: 12px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+@media (max-width: 900px) {
+  .type-card > img,
+  .type-card img {
+    height: 240px !important;
+    padding: 10px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .type-card > img,
+  .type-card img {
+    height: 225px !important;
+    padding: 8px !important;
+  }
+}
+
+/* =========================================================
+   FINAL: SUB-PRODUCT IMAGES FIT INSIDE EACH CARD
+   ========================================================= */
+.type-card {
+  overflow: hidden !important;
+}
+
+.type-card > img,
+.type-card img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 260px !important;
+  max-height: 260px !important;
+  margin: 0 auto !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  object-fit: contain !important;
+  object-position: 50% 50% !important;
+  background-color: #fffaf2 !important;
+  border-radius: 24px 24px 0 0 !important;
+}
+
+@media (max-width: 900px) {
+  .type-card > img,
+  .type-card img {
+    height: 245px !important;
+    max-height: 245px !important;
+    padding: 9px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .type-card > img,
+  .type-card img {
+    height: 225px !important;
+    max-height: 225px !important;
+    padding: 8px !important;
+  }
+}
+
+/* =========================================================
+   FINAL: CLEAN WHITE BACKGROUND FOR ALL SUB-PRODUCT IMAGES
+   ========================================================= */
+.type-card,
+.type-card > img,
+.type-card img {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+.type-card > img,
+.type-card img {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   FINAL: SLIGHT ZOOM FOR SUB-PRODUCT IMAGES
+   A small visual enlargement while keeping every image fully visible.
+   ========================================================= */
+.type-card > img,
+.type-card img {
+  padding: 4px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #ffffff !important;
+}
+
+@media (max-width: 900px) {
+  .type-card > img,
+  .type-card img {
+    padding: 4px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .type-card > img,
+  .type-card img {
+    padding: 3px !important;
+  }
+}
