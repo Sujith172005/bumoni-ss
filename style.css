@@ -3996,3 +3996,433 @@ nav[aria-label="Breadcrumb"] {
     padding: 3px !important;
   }
 }
+
+/* =========================================================
+   FINAL SUB-PRODUCT GRID FIT & ALIGNMENT
+   Slightly smaller images, centered cleanly inside every card
+   ========================================================= */
+.types-grid {
+  width: min(100%, 1120px) !important;
+  margin-inline: auto !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+}
+
+.type-card {
+  height: 100% !important;
+}
+
+.type-card > img {
+  display: block !important;
+  width: calc(100% - 20px) !important;
+  height: 210px !important;
+  margin: 10px 10px 0 !important;
+  padding: 6px !important;
+  box-sizing: border-box !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #ffffff !important;
+  border-radius: 20px !important;
+}
+
+.type-card-body {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 900px) {
+  .type-card > img {
+    height: 200px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .types-grid {
+    gap: 16px !important;
+  }
+
+  .type-card > img {
+    width: calc(100% - 16px) !important;
+    height: 190px !important;
+    margin: 8px 8px 0 !important;
+    padding: 5px !important;
+    border-radius: 18px !important;
+  }
+}
+
+/* =========================================================
+   FINAL ALL SUB-PRODUCT IMAGE SIZE & FULL-VISIBILITY FIX
+   Applies to Chocolate & Confections and Baked Products pages.
+   ========================================================= */
+.types-grid .type-card {
+  align-items: stretch !important;
+}
+
+.types-grid .type-card > img {
+  display: block !important;
+  width: calc(100% - 36px) !important;
+  height: 190px !important;
+  max-width: calc(100% - 36px) !important;
+  margin: 18px auto 0 !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background-color: #ffffff !important;
+  border-radius: 18px !important;
+}
+
+@media (max-width: 900px) {
+  .types-grid .type-card > img {
+    width: calc(100% - 30px) !important;
+    max-width: calc(100% - 30px) !important;
+    height: 180px !important;
+    margin-top: 15px !important;
+    padding: 9px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .types-grid .type-card > img {
+    width: calc(100% - 24px) !important;
+    max-width: calc(100% - 24px) !important;
+    height: 170px !important;
+    margin-top: 12px !important;
+    padding: 8px !important;
+    border-radius: 16px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL MATCH: CHOCOLATE & CONFECTIONS = BAKED PRODUCT SCALE
+   Reduce only the visible chocolate product artwork so every
+   category uses one consistent visual size and alignment.
+   ========================================================= */
+.chocolate-subproducts-page .types-grid .type-card > img {
+  width: calc(100% - 52px) !important;
+  max-width: calc(100% - 52px) !important;
+  height: 190px !important;
+  margin: 18px auto 0 !important;
+  padding: 18px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #ffffff !important;
+}
+
+@media (max-width: 900px) {
+  .chocolate-subproducts-page .types-grid .type-card > img {
+    width: calc(100% - 44px) !important;
+    max-width: calc(100% - 44px) !important;
+    height: 180px !important;
+    margin-top: 15px !important;
+    padding: 16px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .chocolate-subproducts-page .types-grid .type-card > img {
+    width: calc(100% - 36px) !important;
+    max-width: calc(100% - 36px) !important;
+    height: 170px !important;
+    margin-top: 12px !important;
+    padding: 14px !important;
+  }
+}
+
+/* =========================================================
+   FINAL UNIFIED SUB-PRODUCT GRID
+   Chocolate & Confections and Baked Products use exactly the
+   same card grid, image area, spacing and full-image fitting.
+   ========================================================= */
+.types-grid,
+.chocolate-subproducts-page .types-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  width: min(100%, 1120px) !important;
+  margin-inline: auto !important;
+  gap: 22px !important;
+  align-items: stretch !important;
+}
+
+.types-grid .type-card,
+.chocolate-subproducts-page .types-grid .type-card {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  border-radius: 28px !important;
+}
+
+.types-grid .type-card > img,
+.chocolate-subproducts-page .types-grid .type-card > img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 230px !important;
+  max-height: 230px !important;
+  margin: 0 !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 26px 26px 0 0 !important;
+  box-shadow: none !important;
+}
+
+.types-grid .type-card-body,
+.chocolate-subproducts-page .types-grid .type-card-body {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 900px) {
+  .types-grid,
+  .chocolate-subproducts-page .types-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+  }
+
+  .types-grid .type-card > img,
+  .chocolate-subproducts-page .types-grid .type-card > img {
+    height: 220px !important;
+    max-height: 220px !important;
+    padding: 9px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .types-grid,
+  .chocolate-subproducts-page .types-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .types-grid .type-card > img,
+  .chocolate-subproducts-page .types-grid .type-card > img {
+    height: 210px !important;
+    max-height: 210px !important;
+    padding: 8px !important;
+  }
+}
+
+/* =========================================================
+   FINAL CHOCOLATE CARD CONTENT + FULL IMAGE FIT
+   Match Chocolate & Confections card text proportions to the
+   Baked Products cards and allow a gentle hover zoom.
+   ========================================================= */
+.chocolate-subproducts-page .types-grid .type-card-body {
+  padding: 20px 20px 22px !important;
+  gap: 8px !important;
+}
+
+.chocolate-subproducts-page .types-grid .type-card-body h2,
+.chocolate-subproducts-page .types-grid .type-card-body h3 {
+  margin: 0 !important;
+  font-size: 1.08rem !important;
+  line-height: 1.3 !important;
+  min-height: 0 !important;
+}
+
+.chocolate-subproducts-page .types-grid .type-card-body p {
+  margin: 0 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.55 !important;
+  min-height: 0 !important;
+}
+
+.types-grid .type-card > img,
+.chocolate-subproducts-page .types-grid .type-card > img {
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: scale(1) !important;
+  transition: transform 0.28s ease !important;
+  transform-origin: center center !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .types-grid .type-card:hover > img,
+  .chocolate-subproducts-page .types-grid .type-card:hover > img {
+    transform: scale(1.045) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .chocolate-subproducts-page .types-grid .type-card-body {
+    padding: 17px 17px 19px !important;
+  }
+
+  .chocolate-subproducts-page .types-grid .type-card-body h2,
+  .chocolate-subproducts-page .types-grid .type-card-body h3 {
+    font-size: 1.02rem !important;
+  }
+
+  .chocolate-subproducts-page .types-grid .type-card-body p {
+    font-size: 0.9rem !important;
+  }
+}
+
+
+/* === FINAL UNIFIED SUB-PRODUCT TEXT SIZE ===
+   Chocolate & Confections now matches Baked Products exactly. */
+.types-grid .type-card-body {
+  padding: 20px 20px 22px !important;
+  gap: 8px !important;
+}
+.types-grid .type-card-body h2,
+.types-grid .type-card-body h3 {
+  margin: 0 !important;
+  font-size: 1.08rem !important;
+  line-height: 1.3 !important;
+  min-height: 0 !important;
+}
+.types-grid .type-card-body p {
+  margin: 0 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.55 !important;
+  min-height: 0 !important;
+  color: #68462f !important;
+}
+@media (max-width: 600px) {
+  .types-grid .type-card-body {
+    padding: 17px 17px 19px !important;
+  }
+  .types-grid .type-card-body h2,
+  .types-grid .type-card-body h3 {
+    font-size: 1.02rem !important;
+  }
+  .types-grid .type-card-body p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* =========================================================
+   FINAL USER ADJUSTMENT: SLIGHTLY LARGER DESCRIPTION + FULL FIT
+   ========================================================= */
+.types-grid .type-card-body p,
+.chocolate-subproducts-page .types-grid .type-card-body p {
+  font-size: 0.98rem !important;
+  line-height: 1.58 !important;
+}
+
+.types-grid .type-card > img,
+.chocolate-subproducts-page .types-grid .type-card > img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 240px !important;
+  max-height: 240px !important;
+  padding: 8px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  transform: none !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .types-grid .type-card:hover > img,
+  .chocolate-subproducts-page .types-grid .type-card:hover > img {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .types-grid .type-card > img,
+  .chocolate-subproducts-page .types-grid .type-card > img {
+    height: 225px !important;
+    max-height: 225px !important;
+    padding: 7px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .types-grid .type-card-body p,
+  .chocolate-subproducts-page .types-grid .type-card-body p {
+    font-size: 0.94rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .types-grid .type-card > img,
+  .chocolate-subproducts-page .types-grid .type-card > img {
+    height: 215px !important;
+    max-height: 215px !important;
+    padding: 6px !important;
+  }
+}
+
+/* =========================================================
+   HOME COLLECTION IMAGES — BRIGHT WHITE BACKGROUND
+   Keeps the product photos clear while preserving readable titles.
+   ========================================================= */
+#products .creation-card,
+#products .compact-creation-card,
+#products .creation-image {
+  background: #ffffff !important;
+}
+
+#products .creation-card img,
+#products .compact-creation-card img {
+  opacity: 1 !important;
+  background: #ffffff !important;
+  filter: brightness(1.08) contrast(1.02) !important;
+}
+
+#products .creation-card::after,
+#products .compact-creation-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(28, 13, 6, 0.78) 0%,
+    rgba(28, 13, 6, 0.28) 23%,
+    rgba(255, 255, 255, 0) 52%
+  ) !important;
+}
+
+/* Final fix: fully fit every sub-product image inside its card grid */
+.type-card {
+  background: #ffffff !important;
+}
+
+.type-card img {
+  width: 100% !important;
+  height: 250px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+  background: #ffffff !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+  .type-card img {
+    height: 220px !important;
+    padding: 8px !important;
+  }
+}
+
+
+/* Selected product photos: remove visible white border and use a safe close fit. */
+.type-card img.product-photo-zoom {
+  padding: 0 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #ffffff !important;
+  transform: scale(1.035) !important;
+  transform-origin: center center !important;
+}
+@media (max-width: 768px) {
+  .type-card img.product-photo-zoom {
+    padding: 0 !important;
+    transform: scale(1.025) !important;
+  }
+}
