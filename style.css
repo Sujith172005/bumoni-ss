@@ -508,7 +508,7 @@ ul {
 }
 
 .about-image {
-  height: 400px;
+  height: 600px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -883,7 +883,7 @@ ul {
   overflow: hidden;
   background: var(--white);
   border: 1px solid rgba(201, 168, 76, 0.28);
-  border-radius: 28px !important;
+  border-radius: 24px !important;
   box-shadow: var(--shadow);
   transition: transform 0.28s ease;
 }
@@ -894,8 +894,12 @@ ul {
 
 .type-card img {
   width: 100% !important;
-  height: 230px !important;
+  height: 190px !important;
   object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  background: linear-gradient(135deg, #f7efe6 0%, #f3e4cf 100%) !important;
+  border-radius: 0 !important;
 }
 
 .type-card-body {
@@ -903,7 +907,7 @@ ul {
   flex: 1;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1.5rem;
+  padding: 1rem 1rem 1.2rem;
 }
 
 .type-card h2 {
@@ -4309,7 +4313,7 @@ nav[aria-label="Breadcrumb"] {
    ========================================================= */
 .types-grid .type-card-body p,
 .chocolate-subproducts-page .types-grid .type-card-body p {
-  font-size: 0.98rem !important;
+  font-size: 1.00rem !important;
   line-height: 1.58 !important;
 }
 
@@ -4387,42 +4391,1946 @@ nav[aria-label="Breadcrumb"] {
   ) !important;
 }
 
-/* Final fix: fully fit every sub-product image inside its card grid */
-.type-card {
+/* Final fix: make every sub-product image fit the card cleanly without overlap */
+.types-grid .type-card,
+.chocolate-subproducts-page .types-grid .type-card {
   background: #ffffff !important;
+  background-color: #ffffff !important;
+  overflow: hidden !important;
+  border-radius: 22px !important;
 }
 
-.type-card img {
+.types-grid .type-card img,
+.chocolate-subproducts-page .types-grid .type-card img {
   width: 100% !important;
-  height: 250px !important;
-  object-fit: contain !important;
+  height: 205px !important;
+  max-height: 205px !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  border-radius: 20px 20px 0 0 !important;
+}
+
+.types-grid .type-card-body,
+.chocolate-subproducts-page .types-grid .type-card-body {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  padding: 1rem 1rem 1.2rem !important;
+}
+
+@media (max-width: 768px) {
+  .types-grid .type-card img,
+  .chocolate-subproducts-page .types-grid .type-card img {
+    height: 185px !important;
+    max-height: 185px !important;
+  }
+}
+
+/* Selected product photos: use the same fit as the other cards */
+.types-grid .type-card img.product-photo-zoom,
+.chocolate-subproducts-page .types-grid .type-card img.product-photo-zoom {
+  object-fit: cover !important;
   object-position: center center !important;
-  display: block !important;
+  background: #ffffff !important;
+  transform: none !important;
+}
+
+/* Targeted fix for the Vanilla Cake and Oatmeals cookies cards */
+.types-grid .type-card img.product-fit-card {
+  object-fit: cover !important;
+  object-position: center center !important;
   background: #ffffff !important;
   padding: 10px !important;
   box-sizing: border-box !important;
 }
 
+/* Tight fit for the Brownies card image */
+.types-grid .type-card img.brownies-fit-image {
+  object-fit: cover !important;
+  object-position: center center !important;
+  background: #ffffff !important;
+  padding: 0 8px !important;
+  box-sizing: border-box !important;
+}
+
+.types-grid .type-card img[alt="Oatmeals cookies"] {
+  height: 205px !important;
+  max-height: 205px !important;
+  padding: 10px !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
 @media (max-width: 768px) {
-  .type-card img {
-    height: 220px !important;
+  .types-grid .type-card img.product-fit-card {
+    padding: 8px !important;
+  }
+
+  .types-grid .type-card img[alt="Oatmeals cookies"] {
+    height: 185px !important;
+    max-height: 185px !important;
     padding: 8px !important;
   }
 }
 
+/* Ensure cake and cookie images are aligned the same way */
+.cookies-page .types-grid .type-card img,
+.cakes-page .types-grid .type-card img {
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  background: #ffffff !important;
+}
 
-/* Selected product photos: remove visible white border and use a safe close fit. */
-.type-card img.product-photo-zoom {
+.cookies-page .types-grid .type-card,
+.cakes-page .types-grid .type-card {
+  overflow: hidden !important;
+}
+
+/* =========================================================
+   FINAL SPLIT HERO BANNER — content left, product image right
+   ========================================================= */
+#hero.hero {
+  min-height: 570px !important;
+  height: auto !important;
+  padding: 58px 0 54px !important;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(232,197,106,.25), transparent 28%),
+    linear-gradient(135deg, #fffaf4 0%, #f8eee1 52%, #f0dfca 100%) !important;
+  overflow: hidden !important;
+}
+#hero::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: -150px;
+  top: -170px;
+  border-radius: 50%;
+  border: 1px solid rgba(166,124,31,.2);
+}
+#hero .hero-shell {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 42px, 1200px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, .88fr) minmax(440px, 1.12fr);
+  align-items: center;
+  gap: clamp(38px, 6vw, 82px);
+}
+#hero .container.hero-content {
+  width: auto !important;
+  margin: 0 !important;
   padding: 0 !important;
+  color: var(--choc-dark) !important;
+  position: relative !important;
+  z-index: 4 !important;
+}
+#hero .hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  color: var(--gold-deep);
+  font: 700 .78rem/1.2 var(--font-ui);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+#hero .hero-kicker::before { content:""; width: 34px; height: 2px; background: var(--gold); }
+#hero h1 {
+  max-width: 520px !important;
+  color: var(--choc-dark) !important;
+  font-size: clamp(2.7rem, 5vw, 4.65rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.035em;
+}
+#hero h1 em { color: var(--berry) !important; }
+#hero p {
+  max-width: 470px !important;
+  margin: 20px 0 28px !important;
+  color: #674c3f !important;
+  font-size: 1.08rem !important;
+  line-height: 1.75 !important;
+}
+#hero .hero-actions { justify-content: flex-start !important; }
+#hero .hero-actions .btn { min-width: 174px; }
+#hero .hero-carousel {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 3 !important;
+  min-width: 0;
+}
+#hero .hero-image-frame {
+  position: relative;
+  height: clamp(390px, 44vw, 500px);
+  padding: 13px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(166,124,31,.23);
+  box-shadow: 0 28px 70px rgba(58,34,24,.22);
+}
+#hero .hero-slides {
+  position: relative !important;
+  inset: auto !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+}
+#hero .hero-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: scale(1.035) !important;
+}
+#hero .hero-slide.active { transform: scale(1) !important; }
+#hero .hero-product-label {
+  position: absolute;
+  left: 34px;
+  bottom: 34px;
+  z-index: 5;
+  max-width: calc(100% - 68px);
+  padding: 12px 17px;
+  border-radius: 13px;
+  background: rgba(26,14,8,.78);
+  backdrop-filter: blur(8px);
+  color: #fffaf4;
+  box-shadow: 0 10px 30px rgba(0,0,0,.16);
+}
+#hero .hero-product-label span {
+  display: block;
+  color: var(--gold-light);
+  font: 700 .65rem/1.2 var(--font-ui);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+#hero .hero-product-label strong {
+  display: block;
+  margin-top: 3px;
+  font: 600 1rem/1.25 var(--font-heading);
+}
+#hero .hero-controls {
+  position: relative;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin-top: 18px;
+}
+#hero .hero-arrow {
+  position: static !important;
+  transform: none !important;
+  width: 42px !important;
+  height: 42px !important;
+  border: 1px solid rgba(58,34,24,.18) !important;
+  background: #fff !important;
+  color: var(--choc) !important;
+  box-shadow: 0 7px 20px rgba(58,34,24,.11);
+}
+#hero .hero-arrow:hover { background: var(--choc) !important; color: #fff !important; }
+#hero .hero-dots {
+  position: static !important;
+  transform: none !important;
+  display: flex !important;
+  align-items: center;
+  gap: 7px !important;
+}
+#hero .hero-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border: 0 !important;
+  background: rgba(58,34,24,.25) !important;
+}
+#hero .hero-dot.active { width: 25px !important; border-radius: 8px !important; background: var(--gold) !important; }
+#hero .hero-overlay { display: none !important; }
+
+@media (max-width: 900px) {
+  #hero.hero { min-height: 0 !important; padding: 46px 0 38px !important; }
+  #hero .hero-shell { grid-template-columns: 1fr; gap: 30px; }
+  #hero .container.hero-content { text-align: center; }
+  #hero h1, #hero p { margin-left: auto !important; margin-right: auto !important; }
+  #hero .hero-kicker { justify-content: center; }
+  #hero .hero-actions { justify-content: center !important; }
+  #hero .hero-image-frame { height: min(66vw, 450px); min-height: 330px; }
+  #hero .hero-arrow { display: inline-flex !important; }
+}
+@media (max-width: 560px) {
+  #hero.hero { padding: 34px 0 28px !important; }
+  #hero .hero-shell { width: min(100% - 28px, 1200px); gap: 24px; }
+  #hero h1 { font-size: clamp(2.2rem, 11vw, 3.2rem) !important; }
+  #hero p { margin-top: 14px !important; margin-bottom: 21px !important; font-size: .98rem !important; }
+  #hero .hero-kicker { font-size: .68rem; letter-spacing: .12em; }
+  #hero .hero-image-frame { height: 310px; min-height: 0; padding: 8px; border-radius: 22px; }
+  #hero .hero-slides { border-radius: 16px; }
+  #hero .hero-product-label { left: 20px; right: 20px; bottom: 20px; max-width: none; }
+  #hero .hero-controls { margin-top: 13px; }
+  #hero .hero-arrow { width: 38px !important; height: 38px !important; }
+}
+
+/* =========================================================
+   HERO BANNER — 15% COMPACT SIZE
+   Keeps the same split layout while reducing overall scale.
+   ========================================================= */
+#hero.hero {
+  min-height: 485px !important;
+  padding: 49px 0 46px !important;
+}
+#hero::before {
+  width: 306px;
+  height: 306px;
+  right: -128px;
+  top: -145px;
+}
+#hero .hero-shell {
+  width: min(100% - 42px, 1080px);
+  grid-template-columns: minmax(0, .88fr) minmax(374px, 1.12fr);
+  gap: clamp(32px, 5.1vw, 70px);
+}
+#hero .hero-kicker {
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: .72rem;
+}
+#hero .hero-kicker::before {
+  width: 29px;
+}
+#hero h1 {
+  max-width: 442px !important;
+  font-size: clamp(2.3rem, 4.25vw, 3.95rem) !important;
+}
+#hero p {
+  max-width: 400px !important;
+  margin: 17px 0 24px !important;
+  font-size: .98rem !important;
+  line-height: 1.68 !important;
+}
+#hero .hero-actions .btn {
+  min-width: 148px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+#hero .hero-image-frame {
+  height: clamp(332px, 37.4vw, 425px);
+  padding: 11px;
+  border-radius: 26px;
+  box-shadow: 0 24px 60px rgba(58,34,24,.20);
+}
+#hero .hero-slides {
+  border-radius: 19px;
+}
+#hero .hero-product-label {
+  left: 29px;
+  bottom: 29px;
+  max-width: calc(100% - 58px);
+  padding: 10px 14px;
+  border-radius: 11px;
+}
+#hero .hero-product-label span {
+  font-size: .6rem;
+}
+#hero .hero-product-label strong {
+  font-size: .9rem;
+}
+#hero .hero-controls {
+  gap: 11px;
+  margin-top: 15px;
+}
+#hero .hero-arrow {
+  width: 36px !important;
+  height: 36px !important;
+}
+#hero .hero-arrow svg {
+  width: 17px;
+  height: 17px;
+}
+#hero .hero-dots {
+  gap: 6px !important;
+}
+#hero .hero-dot {
+  width: 7px !important;
+  height: 7px !important;
+}
+#hero .hero-dot.active {
+  width: 21px !important;
+}
+
+@media (max-width: 900px) {
+  #hero.hero { padding: 39px 0 32px !important; }
+  #hero .hero-shell { gap: 26px; }
+  #hero .hero-image-frame {
+    height: min(56vw, 383px);
+    min-height: 281px;
+  }
+}
+@media (max-width: 560px) {
+  #hero.hero { padding: 29px 0 24px !important; }
+  #hero .hero-shell { gap: 20px; }
+  #hero h1 { font-size: clamp(1.9rem, 9.4vw, 2.72rem) !important; }
+  #hero p {
+    margin-top: 12px !important;
+    margin-bottom: 18px !important;
+    font-size: .9rem !important;
+  }
+  #hero .hero-kicker { font-size: .63rem; }
+  #hero .hero-image-frame {
+    height: 264px;
+    padding: 7px;
+    border-radius: 19px;
+  }
+  #hero .hero-slides { border-radius: 14px; }
+  #hero .hero-product-label {
+    left: 17px;
+    right: 17px;
+    bottom: 17px;
+  }
+  #hero .hero-controls { margin-top: 11px; }
+  #hero .hero-arrow {
+    width: 34px !important;
+    height: 34px !important;
+  }
+}
+
+/* =========================================================
+   FINAL HERO ALIGNMENT — lower image box, white background,
+   full product image visibility and refined controls
+   ========================================================= */
+#hero.hero {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(201, 158, 52, .10), transparent 24%),
+    radial-gradient(circle at 92% 84%, rgba(112, 43, 53, .055), transparent 25%),
+    #ffffff !important;
+  border-bottom: 1px solid rgba(95, 62, 44, .08);
+}
+
+#hero::before {
+  border-color: rgba(166, 124, 31, .13);
+  opacity: .75;
+}
+
+/* Bring the changing product box a little lower than the text block. */
+#hero .hero-carousel {
+  margin-top: 24px !important;
+}
+
+#hero .hero-image-frame {
+  height: auto !important;
+  aspect-ratio: 1.5 / 1;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(166, 124, 31, .18);
+  box-shadow: 0 20px 48px rgba(58, 34, 24, .14);
+}
+
+#hero .hero-slides {
+  background: #ffffff !important;
+}
+
+/* Show every product image completely without cutting its edges. */
+#hero .hero-slide,
+#hero .hero-slide.active {
   object-fit: contain !important;
   object-position: center center !important;
-  background: #ffffff !important;
-  transform: scale(1.035) !important;
-  transform-origin: center center !important;
+  transform: none !important;
+  background: #ffffff;
+}
+
+/* Keep arrows and dots in one clean control strip under the image. */
+#hero .hero-controls {
+  width: max-content;
+  max-width: 100%;
+  margin: 16px auto 0 !important;
+  padding: 6px 9px;
+  border: 1px solid rgba(58, 34, 24, .10);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 8px 22px rgba(58, 34, 24, .09);
+}
+
+#hero .hero-arrow {
+  border-color: rgba(58, 34, 24, .13) !important;
+  box-shadow: none !important;
+}
+
+#hero .hero-dot {
+  background: rgba(58, 34, 24, .22) !important;
+}
+
+#hero .hero-dot.active {
+  background: var(--gold) !important;
+}
+
+@media (max-width: 900px) {
+  #hero .hero-carousel {
+    margin-top: 8px !important;
+  }
+  #hero .hero-image-frame {
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 1.5 / 1;
+  }
+}
+
+@media (max-width: 560px) {
+  #hero .hero-carousel {
+    margin-top: 4px !important;
+  }
+  #hero .hero-image-frame {
+    height: auto !important;
+    aspect-ratio: 1.42 / 1;
+    padding: 7px;
+  }
+  #hero .hero-controls {
+    margin-top: 10px !important;
+    padding: 5px 7px;
+  }
+}
+
+/* =========================================================
+   FINAL BANNER IMAGE MATCHING — restore warm background and
+   fit each product photograph according to its composition
+   ========================================================= */
+#hero.hero {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(232,197,106,.25), transparent 28%),
+    linear-gradient(135deg, #fffaf4 0%, #f8eee1 52%, #f0dfca 100%) !important;
+}
+
+/* White-background product photos: keep the complete product visible. */
+#hero .hero-slide[data-slide="0"],
+#hero .hero-slide[data-slide="1"],
+#hero .hero-slide[data-slide="4"] {
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #fff !important;
+}
+
+/* Macarons have useful edge-to-edge composition; fill softly without harsh crop. */
+#hero .hero-slide[data-slide="2"] {
+  object-fit: cover !important;
+  object-position: center 52% !important;
+  background: #fff !important;
+}
+
+/* Full-scene photographs: fill the box so no unmatched white strips appear. */
+#hero .hero-slide[data-slide="3"] {
+  object-fit: cover !important;
+  object-position: center 50% !important;
+}
+#hero .hero-slide[data-slide="5"] {
+  object-fit: cover !important;
+  object-position: center 48% !important;
+}
+
+#hero .hero-slides {
+  background: #fff !important;
+}
+
+/* =========================================================
+   HOME + SUB-PRODUCT BANNER FINAL ALIGNMENT
+   ========================================================= */
+/* Keep the approved home-banner size, but lower the complete
+   right-side visual area (image, arrows and dots) slightly. */
+#hero .hero-carousel {
+  margin-top: 34px !important;
+  align-self: start;
+}
+#hero .hero-controls {
+  margin-top: 14px !important;
+}
+
+/* Give every sub-product page the same split-banner language
+   as the home page: copy on the left, product image on the right. */
+.detail-hero {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(380px, .92fr) !important;
+  align-items: center !important;
+  gap: clamp(34px, 5vw, 76px) !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  padding: 48px max(24px, calc((100vw - 1200px) / 2)) 42px !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(232,197,106,.25), transparent 28%),
+    linear-gradient(135deg, #fffaf4 0%, #f8eee1 52%, #f0dfca 100%) !important;
+  border-bottom: 1px solid rgba(95, 62, 44, .08);
+}
+.detail-hero::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  left: -105px;
+  bottom: -125px;
+  border: 1px solid rgba(166,124,31,.14);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.detail-hero > img {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1.5 / 1 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  padding: 10px !important;
+  margin-top: 26px !important;
+  border-radius: 24px !important;
+  border: 1px solid rgba(166,124,31,.18) !important;
+  background: #fff !important;
+  box-shadow: 0 20px 48px rgba(58,34,24,.14) !important;
+  opacity: 1 !important;
+  transform: none !important;
+  z-index: 2;
+}
+.detail-hero .detail-overlay {
+  display: none !important;
+}
+.detail-hero .container.detail-content {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  max-width: 620px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: var(--choc) !important;
+  z-index: 3;
+}
+.detail-hero .breadcrumb {
+  justify-content: flex-start !important;
+  color: rgba(58,34,24,.66) !important;
+}
+.detail-hero .breadcrumb a,
+.detail-hero .breadcrumb span {
+  color: inherit !important;
+}
+.detail-hero .eyebrow {
+  color: var(--gold-dark, #9a7420) !important;
+}
+.detail-hero h1 {
+  color: var(--choc) !important;
+  text-shadow: none !important;
+}
+.detail-hero p {
+  max-width: 560px !important;
+  color: rgba(58,34,24,.76) !important;
+  text-shadow: none !important;
+}
+
+/* Scene-style photos fill the right box; white-background product
+   photos remain fully visible without cutting. */
+body:has(.detail-hero img[src*="brownies"]) .detail-hero > img,
+body:has(.detail-hero img[src*="desserts"]) .detail-hero > img,
+body:has(.detail-hero img[src*="macarons"]) .detail-hero > img,
+body:has(.detail-hero img[src*="macaroons"]) .detail-hero > img {
+  object-fit: cover !important;
+}
+
+@media (max-width: 900px) {
+  #hero .hero-carousel { margin-top: 16px !important; }
+  .detail-hero {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding: 40px 28px 34px !important;
+  }
+  .detail-hero .container.detail-content,
+  .detail-hero > img {
+    grid-column: 1 !important;
+  }
+  .detail-hero .container.detail-content {
+    grid-row: 1 !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  .detail-hero .breadcrumb { justify-content: center !important; }
+  .detail-hero p { margin-left: auto !important; margin-right: auto !important; }
+  .detail-hero > img {
+    grid-row: 2 !important;
+    width: min(100%, 720px) !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #hero .hero-carousel { margin-top: 10px !important; }
+  .detail-hero {
+    gap: 22px !important;
+    padding: 30px 16px 28px !important;
+  }
+  .detail-hero > img {
+    aspect-ratio: 1.42 / 1 !important;
+    padding: 7px !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* =========================================================
+   FINAL REQUEST — HOME BANNER MATCHES SUB-PRODUCT BANNERS
+   and removes the decorative bottom-left curve on inner pages
+   ========================================================= */
+#hero.hero {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 48px 0 42px !important;
+}
+
+#hero .hero-shell {
+  width: min(100% - 48px, 1200px) !important;
+  grid-template-columns: minmax(0, 1fr) minmax(380px, .92fr) !important;
+  gap: clamp(34px, 5vw, 76px) !important;
+  align-items: center !important;
+}
+
+#hero .hero-carousel {
+  margin-top: 26px !important;
+  align-self: center !important;
+}
+
+#hero .hero-image-frame {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 1.5 / 1 !important;
+  padding: 10px !important;
+  border-radius: 24px !important;
+}
+
+#hero .hero-slides {
+  border-radius: 16px !important;
+}
+
+#hero .hero-controls {
+  margin-top: 14px !important;
+}
+
+/* Remove the large curved decoration from the bottom-left corner. */
+.detail-hero::before {
+  display: none !important;
+  content: none !important;
+}
+
+@media (max-width: 900px) {
+  #hero.hero {
+    padding: 40px 0 34px !important;
+  }
+  #hero .hero-shell {
+    grid-template-columns: 1fr !important;
+    width: min(100% - 56px, 720px) !important;
+    gap: 28px !important;
+  }
+  #hero .hero-carousel {
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #hero.hero {
+    padding: 30px 0 28px !important;
+  }
+  #hero .hero-shell {
+    width: min(100% - 32px, 720px) !important;
+    gap: 22px !important;
+  }
+  #hero .hero-image-frame {
+    aspect-ratio: 1.42 / 1 !important;
+    padding: 7px !important;
+    border-radius: 20px !important;
+  }
+}
+
+
+/* Final banner alignment check: keep every banner centred and fully contained */
+#hero .hero-image-frame,
+#hero .hero-slides,
+.detail-hero {
+  overflow: hidden !important;
+}
+#hero .hero-slide,
+#hero .hero-slide.active,
+.detail-hero > img {
+  width: 100% !important;
+  height: 100% !important;
+  object-position: center center !important;
+}
+#hero .hero-slide,
+#hero .hero-slide.active {
+  object-fit: contain !important;
+}
+.detail-hero > img {
+  object-fit: contain !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
 }
 @media (max-width: 768px) {
-  .type-card img.product-photo-zoom {
+  .detail-hero > img { padding: 6px !important; }
+}
+
+
+/* =========================================================
+   DEFINITIVE RESPONSIVE BANNER FIX
+   White-background artwork stays fully visible; photographic
+   artwork fills the banner. Mobile headers keep image visible.
+   ========================================================= */
+#hero .hero-slides,
+.detail-hero {
+  background: #fff !important;
+}
+
+#hero .hero-slide.banner-contain,
+.detail-hero.banner-contain > img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  transform: none !important;
+  padding: 0 !important;
+  background: #fff !important;
+}
+
+#hero .hero-slide.banner-cover,
+.detail-hero.banner-cover > img {
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: none !important;
+  padding: 0 !important;
+}
+
+/* Inner page header image box */
+.detail-hero {
+  min-height: 0 !important;
+  height: clamp(360px, 36vw, 470px) !important;
+  isolation: isolate;
+  border-bottom: 1px solid rgba(75, 45, 30, .10);
+}
+.detail-hero > img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 0 !important;
+}
+.detail-hero .detail-overlay {
+  z-index: 1 !important;
+  background: linear-gradient(90deg,
+    rgba(25, 12, 7, .84) 0%,
+    rgba(25, 12, 7, .62) 36%,
+    rgba(25, 12, 7, .18) 68%,
+    rgba(25, 12, 7, .04) 100%) !important;
+}
+.detail-hero .detail-content {
+  z-index: 2 !important;
+}
+
+/* White-background banners need a lighter veil so the product remains clear. */
+.detail-hero.banner-contain .detail-overlay {
+  background: linear-gradient(90deg,
+    rgba(32, 17, 10, .86) 0%,
+    rgba(32, 17, 10, .62) 34%,
+    rgba(32, 17, 10, .12) 62%,
+    rgba(32, 17, 10, 0) 100%) !important;
+}
+
+@media (max-width: 768px) {
+  #hero .hero-image-frame {
+    width: 100% !important;
+    aspect-ratio: 1.5 / 1 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .detail-hero {
+    height: 430px !important;
+    min-height: 430px !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    background: #fff !important;
+  }
+  .detail-hero > img {
+    width: 100% !important;
+    height: 100% !important;
+    object-position: center center !important;
+  }
+  .detail-hero.banner-contain > img {
+    object-fit: contain !important;
+  }
+  .detail-hero.banner-cover > img {
+    object-fit: cover !important;
+  }
+  .detail-hero .detail-overlay,
+  .detail-hero.banner-contain .detail-overlay {
+    background: linear-gradient(180deg,
+      rgba(24, 12, 7, .02) 0%,
+      rgba(24, 12, 7, .08) 36%,
+      rgba(24, 12, 7, .72) 72%,
+      rgba(24, 12, 7, .94) 100%) !important;
+  }
+  .detail-hero .container.detail-content {
+    width: min(100% - 28px, 680px) !important;
+    padding: 0 0 24px !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+  }
+  .detail-hero .breadcrumb {
+    justify-content: center !important;
+  }
+  .detail-hero h1 {
+    margin: 2px auto 4px !important;
+  }
+  .detail-hero .detail-content p {
+    max-width: 520px !important;
+    margin: 4px auto 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Mobile sub-product grid: images always load visibly and align evenly. */
+  .types-grid,
+  .chocolate-subproducts-page .types-grid {
+    grid-template-columns: 1fr !important;
+    width: min(100%, 520px) !important;
+    gap: 18px !important;
+  }
+  .types-grid .type-card,
+  .chocolate-subproducts-page .types-grid .type-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .types-grid .type-card > img,
+  .chocolate-subproducts-page .types-grid .type-card > img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    height: 220px !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #fff !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero .hero-shell {
+    width: min(100% - 24px, 720px) !important;
+  }
+  #hero .hero-image-frame {
+    aspect-ratio: 1.38 / 1 !important;
+  }
+  .detail-hero {
+    height: 400px !important;
+    min-height: 400px !important;
+  }
+  .detail-hero .container.detail-content {
+    width: min(100% - 22px, 680px) !important;
+    padding-bottom: 18px !important;
+  }
+  .detail-hero .eyebrow {
+    font-size: .68rem !important;
+    letter-spacing: .12em !important;
+  }
+  .detail-hero h1 {
+    font-size: clamp(1.75rem, 8vw, 2.25rem) !important;
+  }
+  .detail-hero .detail-content p {
+    font-size: .84rem !important;
+  }
+  .types-grid .type-card > img,
+  .chocolate-subproducts-page .types-grid .type-card > img {
+    height: 205px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL REQUESTED BANNER CORRECTIONS
+   Restore the original warm banner colour, position the
+   Brownies inner-page banner correctly, and keep every inner
+   banner completely visible on phones.
+   ========================================================= */
+#hero.hero {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(232,197,106,.25), transparent 28%),
+    linear-gradient(135deg, #fffaf4 0%, #f8eee1 52%, #f0dfca 100%) !important;
+}
+#hero .hero-image-frame {
+  background: rgba(248,238,225,.82) !important;
+}
+#hero .hero-slides,
+.detail-hero {
+  background: #f8eee1 !important;
+}
+
+/* Brownies desktop/tablet banner: fill the box and keep the main brownie centred. */
+.detail-hero.brownies-detail-banner > img {
+  object-fit: cover !important;
+  object-position: center 54% !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+@media (max-width: 768px) {
+  /* Mobile inner banners: show the complete artwork with no cropping. */
+  .detail-hero,
+  .detail-hero.banner-cover,
+  .detail-hero.banner-contain {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 2048 / 1365 !important;
+    background: #f8eee1 !important;
+    display: grid !important;
+    place-items: stretch !important;
+  }
+  .detail-hero > img,
+  .detail-hero.banner-cover > img,
+  .detail-hero.banner-contain > img,
+  .detail-hero.brownies-detail-banner > img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
     padding: 0 !important;
-    transform: scale(1.025) !important;
+    background: #f8eee1 !important;
+  }
+  .detail-hero .detail-overlay,
+  .detail-hero.banner-contain .detail-overlay {
+    background: linear-gradient(180deg,
+      rgba(24,12,7,0) 0%,
+      rgba(24,12,7,.04) 42%,
+      rgba(24,12,7,.68) 74%,
+      rgba(24,12,7,.90) 100%) !important;
+  }
+  .detail-hero .container.detail-content {
+    align-self: end !important;
+    padding-bottom: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-hero,
+  .detail-hero.banner-cover,
+  .detail-hero.banner-contain {
+    aspect-ratio: 1.36 / 1 !important;
+  }
+}
+
+/* =========================================================
+   HOME HERO IMAGE BOX — EXACTLY MATCH SUB-PRODUCT BANNER BOX
+   Final override: keeps the inner-page banner alignment as-is.
+   ========================================================= */
+#hero .hero-carousel {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin-top: 26px !important;
+  align-self: center !important;
+}
+
+#hero .hero-image-frame {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 1.5 / 1 !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  border-radius: 24px !important;
+  border: 1px solid rgba(166,124,31,.18) !important;
+  background: #fff !important;
+  box-shadow: 0 20px 48px rgba(58,34,24,.14) !important;
+}
+
+#hero .hero-slides {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  border-radius: 16px !important;
+  background: #fff !important;
+}
+
+#hero .hero-slide,
+#hero .hero-slide.active,
+#hero .hero-slide.banner-contain,
+#hero .hero-slide.banner-cover {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #fff !important;
+  transform: none !important;
+}
+
+/* Keep the label safely inside the same image area. */
+#hero .hero-product-label {
+  left: 28px !important;
+  right: auto !important;
+  bottom: 28px !important;
+  max-width: calc(100% - 56px) !important;
+}
+
+@media (max-width: 900px) {
+  #hero .hero-carousel {
+    margin-top: 0 !important;
+  }
+  #hero .hero-image-frame {
+    width: min(100%, 720px) !important;
+    margin: 0 auto !important;
+    aspect-ratio: 1.5 / 1 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #hero .hero-image-frame {
+    aspect-ratio: 1.42 / 1 !important;
+    padding: 7px !important;
+    border-radius: 20px !important;
+  }
+  #hero .hero-slides {
+    border-radius: 14px !important;
+  }
+  #hero .hero-product-label {
+    left: 17px !important;
+    right: 17px !important;
+    bottom: 17px !important;
+    max-width: none !important;
+  }
+}
+
+/* =========================================================
+   FINAL MOBILE SUB-PRODUCT GRID IMAGE FIX
+   Keeps every product image visible on phones and prevents
+   inherited banner/image rules from collapsing the card.
+   ========================================================= */
+@media screen and (max-width: 768px) {
+  main .types-grid,
+  main .product-grid.types-grid,
+  .chocolate-subproducts-page main .types-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: calc(100% - 28px) !important;
+    max-width: 520px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    gap: 20px !important;
+    overflow: visible !important;
+  }
+
+  main .types-grid > .type-card,
+  .chocolate-subproducts-page main .types-grid > .type-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    border-radius: 22px !important;
+    background: #ffffff !important;
+  }
+
+  main .types-grid > .type-card > img,
+  .chocolate-subproducts-page main .types-grid > .type-card > img,
+  main .types-grid > .type-card img.product-photo-zoom,
+  main .types-grid > .type-card img.product-fit-card,
+  main .types-grid > .type-card img.brownies-fit-image {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 230px !important;
+    min-height: 230px !important;
+    max-height: 230px !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #ffffff !important;
+    border-radius: 0 !important;
+    transform: none !important;
+    filter: none !important;
+    clip: auto !important;
+  }
+
+  main .types-grid > .type-card > .type-card-body,
+  .chocolate-subproducts-page main .types-grid > .type-card > .type-card-body {
+    position: relative !important;
+    display: flex !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 18px !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  main .types-grid,
+  main .product-grid.types-grid,
+  .chocolate-subproducts-page main .types-grid {
+    width: calc(100% - 20px) !important;
+  }
+
+  main .types-grid > .type-card > img,
+  .chocolate-subproducts-page main .types-grid > .type-card > img,
+  main .types-grid > .type-card img.product-photo-zoom,
+  main .types-grid > .type-card img.product-fit-card,
+  main .types-grid > .type-card img.brownies-fit-image {
+    height: 215px !important;
+    min-height: 215px !important;
+    max-height: 215px !important;
+    padding: 6px !important;
+  }
+}
+
+/* =========================================================
+   TRUE FINAL MOBILE INNER-BANNER FIX
+   Keep heading content and product image as two clear blocks.
+   This prevents the banner photo from collapsing into a thin strip.
+   ========================================================= */
+@media screen and (max-width: 768px) {
+  .detail-hero,
+  .detail-hero.banner-cover,
+  .detail-hero.banner-contain,
+  .detail-hero.brownies-detail-banner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    gap: 22px !important;
+    padding: 30px 16px 28px !important;
+    overflow: visible !important;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(232,197,106,.20), transparent 28%),
+      linear-gradient(135deg, #fffaf4 0%, #f8eee1 52%, #f0dfca 100%) !important;
+  }
+
+  .detail-hero .detail-overlay,
+  .detail-hero.banner-cover .detail-overlay,
+  .detail-hero.banner-contain .detail-overlay {
+    display: none !important;
+  }
+
+  .detail-hero .container.detail-content {
+    order: 1 !important;
+    position: relative !important;
+    inset: auto !important;
+    align-self: auto !important;
+    width: 100% !important;
+    max-width: 680px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+    color: var(--choc) !important;
+  }
+
+  .detail-hero .breadcrumb {
+    justify-content: center !important;
+  }
+
+  .detail-hero h1,
+  .detail-hero p,
+  .detail-hero .breadcrumb,
+  .detail-hero .breadcrumb a,
+  .detail-hero .breadcrumb span {
+    color: var(--choc) !important;
+    text-shadow: none !important;
+  }
+
+  .detail-hero > img,
+  .detail-hero.banner-cover > img,
+  .detail-hero.banner-contain > img,
+  .detail-hero.brownies-detail-banner > img {
+    order: 2 !important;
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: min(100%, 680px) !important;
+    height: auto !important;
+    min-height: 220px !important;
+    max-height: none !important;
+    aspect-ratio: 1.5 / 1 !important;
+    margin: 0 auto !important;
+    padding: 7px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border: 1px solid rgba(166,124,31,.18) !important;
+    border-radius: 20px !important;
+    background: #fff !important;
+    box-shadow: 0 14px 34px rgba(58,34,24,.12) !important;
+    transform: none !important;
+    z-index: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .detail-hero.banner-contain > img {
+    object-fit: contain !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .detail-hero,
+  .detail-hero.banner-cover,
+  .detail-hero.banner-contain,
+  .detail-hero.brownies-detail-banner {
+    padding: 26px 12px 24px !important;
+    gap: 18px !important;
+  }
+
+  .detail-hero > img,
+  .detail-hero.banner-cover > img,
+  .detail-hero.banner-contain > img,
+  .detail-hero.brownies-detail-banner > img {
+    min-height: 205px !important;
+    aspect-ratio: 1.38 / 1 !important;
+    padding: 5px !important;
+    border-radius: 17px !important;
+  }
+}
+
+/* =========================================================
+   FINAL HOME CAROUSEL ARROW POSITION
+   Match the approved sub-product banner frame and place the
+   previous/next arrows at the vertical centre of each side.
+   ========================================================= */
+#hero .hero-carousel {
+  position: relative !important;
+  width: 100% !important;
+}
+
+#hero .hero-controls {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  pointer-events: none !important;
+  z-index: 20 !important;
+}
+
+#hero .hero-arrow {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
+  pointer-events: auto !important;
+  z-index: 22 !important;
+  width: 46px !important;
+  height: 46px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#hero .hero-arrow-prev {
+  left: 18px !important;
+  right: auto !important;
+}
+
+#hero .hero-arrow-next {
+  right: 18px !important;
+  left: auto !important;
+}
+
+#hero .hero-dots {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 16px !important;
+  transform: translateX(-50%) !important;
+  margin: 0 !important;
+  pointer-events: auto !important;
+  z-index: 21 !important;
+  background: rgba(255,255,255,.88) !important;
+  border-radius: 999px !important;
+  padding: 9px 13px !important;
+  box-shadow: 0 7px 20px rgba(47,28,18,.12) !important;
+}
+
+@media (max-width: 768px) {
+  #hero .hero-arrow {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  #hero .hero-arrow-prev { left: 10px !important; }
+  #hero .hero-arrow-next { right: 10px !important; }
+  #hero .hero-dots {
+    bottom: 10px !important;
+    padding: 7px 10px !important;
+  }
+}
+
+/* =========================================================
+   FINAL HOME HERO NAVIGATION LAYOUT
+   Arrows stay OUTSIDE the image box. The previous arrow sits
+   after the changing content; the next arrow sits after the
+   image area. Text and image continue changing together.
+   ========================================================= */
+#hero .hero-shell {
+  display: grid !important;
+  grid-template-columns: minmax(300px, .88fr) 52px minmax(480px, 1.12fr) 52px !important;
+  align-items: center !important;
+  column-gap: 14px !important;
+}
+
+#hero .container.hero-content {
+  grid-column: 1 !important;
+  min-width: 0 !important;
+}
+
+#hero .hero-arrow-outside {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  width: 46px !important;
+  height: 46px !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  justify-self: center !important;
+  align-self: center !important;
+  pointer-events: auto !important;
+  z-index: 25 !important;
+  background: rgba(255,255,255,.94) !important;
+  border: 1px solid rgba(166,124,31,.22) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 8px 22px rgba(47,28,18,.14) !important;
+}
+
+#hero .hero-arrow-prev { grid-column: 2 !important; }
+#hero .hero-carousel { grid-column: 3 !important; position: relative !important; width: 100% !important; }
+#hero .hero-arrow-next { grid-column: 4 !important; }
+
+#hero .hero-dots {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  width: max-content !important;
+  margin: 14px auto 0 !important;
+  display: flex !important;
+  pointer-events: auto !important;
+}
+
+/* Remove the old full-carousel controls overlay completely. */
+#hero .hero-controls { display: none !important; }
+
+@media (max-width: 1100px) {
+  #hero .hero-shell {
+    grid-template-columns: minmax(260px, .9fr) 46px minmax(390px, 1.1fr) 46px !important;
+    column-gap: 10px !important;
+  }
+  #hero .hero-arrow-outside { width: 42px !important; height: 42px !important; }
+}
+
+@media (max-width: 900px) {
+  #hero .hero-shell {
+    grid-template-columns: 46px minmax(0, 1fr) 46px !important;
+    row-gap: 24px !important;
+  }
+  #hero .container.hero-content {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+  }
+  #hero .hero-arrow-prev {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+  #hero .hero-carousel {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    min-width: 0 !important;
+  }
+  #hero .hero-arrow-next {
+    grid-column: 3 !important;
+    grid-row: 2 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #hero .hero-shell {
+    width: min(100% - 20px, 1200px) !important;
+    grid-template-columns: 38px minmax(0, 1fr) 38px !important;
+    column-gap: 6px !important;
+  }
+  #hero .hero-arrow-outside {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  #hero .hero-arrow-outside svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  #hero .hero-dots {
+    margin-top: 10px !important;
+    padding: 7px 9px !important;
+  }
+}
+
+/* =========================================================
+   FINAL REQUEST — HOME BANNER MATCHES SUB-PRODUCT BANNER SIZE
+   Text | left arrow | image box | right arrow
+   ========================================================= */
+#hero .hero-shell {
+  width: 100% !important;
+  max-width: none !important;
+  padding-left: max(24px, calc((100vw - 1200px) / 2)) !important;
+  padding-right: max(24px, calc((100vw - 1200px) / 2)) !important;
+  box-sizing: border-box !important;
+  grid-template-columns: minmax(0, 1fr) 52px minmax(380px, .92fr) 52px !important;
+  gap: 0 14px !important;
+  align-items: center !important;
+}
+
+#hero .container.hero-content {
+  width: 100% !important;
+  max-width: 620px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  justify-self: start !important;
+}
+
+/* Left arrow is immediately after the content column. */
+#hero .hero-arrow-prev {
+  grid-column: 2 !important;
+  justify-self: center !important;
+  align-self: center !important;
+}
+
+/* Home image box uses the exact sub-product banner proportions. */
+#hero .hero-carousel {
+  grid-column: 3 !important;
+  width: 100% !important;
+  margin-top: 26px !important;
+  align-self: center !important;
+}
+
+#hero .hero-image-frame {
+  width: 100% !important;
+  aspect-ratio: 1.5 / 1 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 10px !important;
+  border-radius: 24px !important;
+  border: 1px solid rgba(166,124,31,.18) !important;
+  background: #fff !important;
+  box-shadow: 0 20px 48px rgba(58,34,24,.14) !important;
+}
+
+#hero .hero-arrow-next {
+  grid-column: 4 !important;
+  justify-self: center !important;
+  align-self: center !important;
+}
+
+@media (max-width: 900px) {
+  #hero .hero-shell {
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+    grid-template-columns: 46px minmax(0, 1fr) 46px !important;
+    row-gap: 24px !important;
+  }
+  #hero .container.hero-content {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    max-width: 720px !important;
+    justify-self: center !important;
+  }
+  #hero .hero-arrow-prev { grid-column: 1 !important; grid-row: 2 !important; }
+  #hero .hero-carousel {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    max-width: 720px !important;
+    margin: 0 auto !important;
+  }
+  #hero .hero-arrow-next { grid-column: 3 !important; grid-row: 2 !important; }
+}
+
+@media (max-width: 560px) {
+  #hero .hero-shell {
+    width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    grid-template-columns: 38px minmax(0, 1fr) 38px !important;
+    column-gap: 6px !important;
+  }
+  #hero .hero-image-frame {
+    aspect-ratio: 1.42 / 1 !important;
+    padding: 7px !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* Final requested carousel controls: arrows on the far left/right of the image; dots removed. */
+#hero .hero-dots { display: none !important; }
+#hero .hero-image-frame { position: relative !important; }
+#hero .hero-image-frame > .hero-arrow {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 20 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+}
+#hero .hero-image-frame > .hero-arrow-prev { left: 12px !important; }
+#hero .hero-image-frame > .hero-arrow-next { right: 12px !important; }
+@media (max-width: 560px) {
+  #hero .hero-image-frame > .hero-arrow-prev { left: 8px !important; }
+  #hero .hero-image-frame > .hero-arrow-next { right: 8px !important; }
+}
+
+
+/* =========================================================
+   FINAL FIX — carousel arrows at the full image-banner edges
+   ========================================================= */
+#hero .hero-shell {
+  grid-template-columns: minmax(0, 1fr) minmax(380px, .92fr) !important;
+  column-gap: 28px !important;
+}
+#hero .container.hero-content { grid-column: 1 !important; }
+#hero .hero-carousel { grid-column: 2 !important; position: relative !important; }
+#hero .hero-image-frame { position: relative !important; overflow: hidden !important; }
+#hero .hero-image-frame > .hero-arrow,
+#hero .hero-arrow-outside {
+  position: absolute !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  width: 44px !important;
+  height: 44px !important;
+  margin: 0 !important;
+  z-index: 40 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255,255,255,.96) !important;
+  border: 1px solid rgba(166,124,31,.28) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 8px 22px rgba(47,28,18,.18) !important;
+}
+#hero .hero-image-frame > .hero-arrow-prev,
+#hero .hero-arrow-prev { left: 10px !important; right: auto !important; }
+#hero .hero-image-frame > .hero-arrow-next,
+#hero .hero-arrow-next { right: 10px !important; left: auto !important; }
+#hero .hero-dots,
+#hero .hero-controls { display: none !important; }
+
+@media (max-width: 900px) {
+  #hero .hero-shell {
+    grid-template-columns: 1fr !important;
+    row-gap: 24px !important;
+  }
+  #hero .container.hero-content {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+  #hero .hero-carousel {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #hero .hero-image-frame > .hero-arrow,
+  #hero .hero-arrow-outside {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  #hero .hero-image-frame > .hero-arrow-prev,
+  #hero .hero-arrow-prev { left: 6px !important; }
+  #hero .hero-image-frame > .hero-arrow-next,
+  #hero .hero-arrow-next { right: 6px !important; }
+}
+
+
+/* =========================================================
+   USER REQUEST — arrows outside banner image + selected zooms
+   ========================================================= */
+#hero .hero-carousel {
+  position: relative !important;
+  overflow: visible !important;
+}
+#hero .hero-image-frame {
+  overflow: hidden !important;
+}
+#hero .hero-carousel > .hero-arrow-outside {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 50 !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255,255,255,.98) !important;
+  border: 1px solid rgba(166,124,31,.28) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 8px 22px rgba(47,28,18,.18) !important;
+}
+#hero .hero-carousel > .hero-arrow-prev {
+  left: -58px !important;
+  right: auto !important;
+}
+#hero .hero-carousel > .hero-arrow-next {
+  right: -58px !important;
+  left: auto !important;
+}
+
+/* Slight zoom only for the four requested sub-product images. */
+.type-card > img.requested-product-zoom {
+  transform: scale(1.10) !important;
+  transform-origin: center center !important;
+}
+.type-card {
+  overflow: hidden !important;
+}
+
+@media (max-width: 900px) {
+  #hero .hero-carousel {
+    width: calc(100% - 108px) !important;
+    max-width: 720px !important;
+  }
+  #hero .hero-carousel > .hero-arrow-prev { left: -54px !important; }
+  #hero .hero-carousel > .hero-arrow-next { right: -54px !important; }
+}
+@media (max-width: 560px) {
+  #hero .hero-carousel {
+    width: calc(100% - 84px) !important;
+  }
+  #hero .hero-carousel > .hero-arrow-outside {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  #hero .hero-carousel > .hero-arrow-prev { left: -42px !important; }
+  #hero .hero-carousel > .hero-arrow-next { right: -42px !important; }
+  .type-card > img.requested-product-zoom {
+    transform: scale(1.08) !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL CORRECTION — working outside arrows, no image zoom
+   ========================================================= */
+#hero .hero-shell,
+#hero .hero-carousel,
+#hero .hero-content { overflow: visible !important; }
+
+#hero .hero-carousel > .hero-arrow-outside {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 999 !important;
+}
+
+#hero .hero-carousel > .hero-arrow-prev {
+  left: -58px !important;
+  right: auto !important;
+}
+
+#hero .hero-carousel > .hero-arrow-next {
+  right: -58px !important;
+  left: auto !important;
+}
+
+/* Keep selected product photos at their natural size and centre them neatly. */
+.type-card > img.requested-product-fit {
+  transform: none !important;
+  scale: 1 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media (max-width: 900px) {
+  #hero .hero-carousel > .hero-arrow-prev { left: -52px !important; }
+  #hero .hero-carousel > .hero-arrow-next { right: -52px !important; }
+}
+
+@media (max-width: 560px) {
+  #hero .hero-carousel > .hero-arrow-prev { left: -40px !important; }
+  #hero .hero-carousel > .hero-arrow-next { right: -40px !important; }
+}
+
+/* FINAL LEFT-ARROW CLICK FIX
+   Keep the previous button in the gap indicated by the user and above
+   every hero text/image layer so the full circular button is clickable. */
+#hero .hero-carousel {
+  position: relative !important;
+  z-index: 30 !important;
+  isolation: isolate;
+}
+
+#hero .hero-content {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+#hero .hero-carousel > .hero-arrow-prev {
+  z-index: 2147483647 !important;
+  pointer-events: auto !important;
+  touch-action: manipulation;
+}
+
+#hero .hero-carousel > .hero-arrow-prev,
+#hero .hero-carousel > .hero-arrow-prev * {
+  pointer-events: auto !important;
+}
+
+/* Final adjustment: center all sub-product names */
+.types-grid .type-card-body h3,
+.chocolate-subproducts-page .types-grid .type-card-body h3 {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* =========================================================
+   MOBILE HOME HERO — hide featured label and enlarge image
+   ========================================================= */
+@media (max-width: 560px) {
+  #hero .hero-product-label {
+    display: none !important;
+  }
+
+  #hero .hero-carousel {
+    width: calc(100% - 64px) !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #hero .hero-image-frame {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 300px !important;
+    aspect-ratio: 1.18 / 1 !important;
+    padding: 4px !important;
+  }
+
+  #hero .hero-slides {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  #hero .hero-slide,
+  #hero .hero-slide.active,
+  #hero .hero-slide.banner-contain,
+  #hero .hero-slide.banner-cover {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  #hero .hero-carousel > .hero-arrow-prev {
+    left: -32px !important;
+  }
+
+  #hero .hero-carousel > .hero-arrow-next {
+    right: -32px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL MOBILE BANNER ALIGNMENT + INSTANT ARROW CHANGES
+   ========================================================= */
+/* Clicking either arrow must switch immediately, without the
+   temporary fade/hide effect on desktop or mobile. */
+#hero .hero-slide,
+#hero .hero-slide.active,
+#hero .hero-slide.is-leaving {
+  transition: none !important;
+  animation: none !important;
+}
+
+@media (max-width: 560px) {
+  #hero .hero-shell {
+    width: calc(100% - 20px) !important;
+    max-width: 540px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #hero .hero-carousel {
+    width: calc(100% - 76px) !important;
+    max-width: 430px !important;
+    margin: 0 auto !important;
+    align-self: center !important;
+  }
+
+  #hero .hero-image-frame {
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 1.34 / 1 !important;
+    padding: 5px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  #hero .hero-slides {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+  }
+
+  #hero .hero-slide,
+  #hero .hero-slide.active {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  #hero .hero-carousel > .hero-arrow-prev {
+    left: -38px !important;
+  }
+
+  #hero .hero-carousel > .hero-arrow-next {
+    right: -38px !important;
   }
 }

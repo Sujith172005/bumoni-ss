@@ -275,12 +275,13 @@ const HERO_PRODUCTS = [
   const hero = $("#hero");
   const slides = $$(".hero-slide");
   const dots = $$("[data-hero-dot]");
-  const prevBtn = $(".hero-arrow-prev");
-  const nextBtn = $(".hero-arrow-next");
+  const prevBtn = hero?.querySelector(".hero-arrow-prev");
+  const nextBtn = hero?.querySelector(".hero-arrow-next");
   const heroContent = $("#hero-content");
   const heroTitle = $("#hero-title");
   const heroDesc = $("#hero-desc");
   const heroCta = $("#hero-cta");
+  const heroImageLabel = $("#hero-image-label");
 
   if (!hero || !slides.length) return;
 
@@ -298,6 +299,9 @@ const HERO_PRODUCTS = [
       if (heroCta) {
         heroCta.textContent = product.cta;
         heroCta.setAttribute("href", product.link);
+      }
+      if (heroImageLabel) {
+        heroImageLabel.textContent = product.label || product.title.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
       }
     };
 
@@ -323,7 +327,6 @@ const HERO_PRODUCTS = [
 
   function showSlide(index, animate = true) {
     const nextIndex = (index + slides.length) % slides.length;
-    if (isTransitioning && animate) return;
     if (nextIndex === activeIndex && animate) return;
 
     const previousIndex = activeIndex;
@@ -369,13 +372,22 @@ const HERO_PRODUCTS = [
     }
   }
 
-  prevBtn?.addEventListener("click", () => {
-    prevSlide();
+  const handlePreviousSlide = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    isTransitioning = false;
+    showSlide(activeIndex - 1, false);
     restartAutoPlay();
-  });
+  };
 
-  nextBtn?.addEventListener("click", () => {
-    nextSlide();
+  // Capture the click so the neighbouring text/content layer cannot block it.
+  prevBtn?.addEventListener("click", handlePreviousSlide, true);
+
+  nextBtn?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    isTransitioning = false;
+    showSlide(activeIndex + 1, false);
     restartAutoPlay();
   });
 
@@ -403,8 +415,8 @@ const HERO_PRODUCTS = [
     const touchEndX = event.changedTouches[0]?.clientX || 0;
     const delta = touchEndX - touchStartX;
     if (Math.abs(delta) < 50) return;
-    if (delta > 0) prevSlide();
-    else nextSlide();
+    if (delta > 0) showSlide(activeIndex - 1, false);
+    else showSlide(activeIndex + 1, false);
     restartAutoPlay();
   }, { passive: true });
 
