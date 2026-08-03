@@ -263,12 +263,12 @@ contactButton?.addEventListener("click", () => {
 });
 
 const HERO_PRODUCTS = [
-  { title: "Handcrafted<br /><em>Truffles &amp; Pralines</em>", desc: "Elegant cocoa-rich truffles and filled pralines with smooth centres, glossy finishes and premium gifting appeal.", cta: "View Collection", link: "truffles-pralines.html" },
-  { title: "Handcrafted<br /><em>Fudge, Caramels &amp; Toffees</em>", desc: "Soft fudge, buttery caramels and chewy toffees made for celebrations, hampers and sweet table treats.", cta: "View Collection", link: "fudge-caramels-toffees.html" },
-  { title: "Handcrafted<br /><em>Macaroons</em>", desc: "Colourful, delicate macaroons with crisp shells, soft centres and elegant flavours for premium occasions.", cta: "View Collection", link: "macaroons.html" },
-  { title: "Fresh Baked<br /><em>Brownies</em>", desc: "Rich chocolate brownies with fudgy centres, glossy tops and premium handmade finish.", cta: "View Brownies", link: "brownies.html" },
-  { title: "Fresh Baked<br /><em>Cookies</em>", desc: "Crunchy and buttery cookies baked fresh for gifting, tea-time, hampers and premium snacking.", cta: "View Cookies", link: "cookies.html" },
-  { title: "Classic<br /><em>Desserts</em>", desc: "Classic desserts with smooth textures, rich flavours and artisan presentation for every occasion.", cta: "View Desserts", link: "desserts.html" }
+  { title: "<em>Truffles &amp; Pralines</em>", desc: "Luxurious handcrafted truffles and pralines, where exceptional ingredients meet artisanal craftsmanship.", cta: "View Collection", link: "truffles-pralines.html" },
+  { title: "<em>Fudge, Caramels &amp; Toffees</em>", desc: "Refined confections, where rich fudges, buttery caramels, and classic toffees meet exceptional craftsmanship.", cta: "View Collection", link: "fudge-caramels-toffees.html" },
+  { title: "<em>Macaroons</em>", desc: "Gracefully handcrafted macarons, offering a harmonious blend of texture, flavour, and elegance.", cta: "View Collection", link: "macaroons.html" },
+  { title: "<em>Brownies</em>", desc: "Signature brownies, crafted with exceptional chocolate and uncompromising quality.", cta: "View Brownies", link: "brownies.html" },
+  { title: "<em>Cookies</em>", desc: " Premium cookies, freshly baked with care and crafted to deliver comfort in every bite.", cta: "View Cookies", link: "cookies.html" },
+  { title: "<em>Desserts</em>", desc: "A celebration of fine desserts, crafted with elegance and artistry.", cta: "View Desserts", link: "desserts.html" }
 ];
 
 (function setupHeroSlider() {
