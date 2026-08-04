@@ -3530,10 +3530,10 @@ nav[aria-label="Breadcrumb"] {
 
 .other-business-card.sarvathaa-card .business-logo-box img,
 .other-business-card.sarvathaa-card .clean-logo-box img {
-  width: 140px !important;
-  height: 140px !important;
-  max-width: 140px !important;
-  max-height: 140px !important;
+  width: 175px !important;
+  height: 190px !important;
+  max-width: 175px !important;
+  max-height: 190px !important;
   object-fit: contain !important;
 }
 
@@ -3559,10 +3559,10 @@ nav[aria-label="Breadcrumb"] {
 
   .other-business-card.sarvathaa-card .business-logo-box img,
   .other-business-card.sarvathaa-card .clean-logo-box img {
-    width: 96px !important;
-    height: 96px !important;
-    max-width: 96px !important;
-    max-height: 96px !important;
+    width: 125px !important;
+    height: 150px !important;
+    max-width: 125px !important;
+    max-height: 150px !important;
   }
 }
 .other-business-card.sarvathaa-card:focus-within {
