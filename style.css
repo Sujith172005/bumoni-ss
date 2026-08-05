@@ -3507,8 +3507,8 @@ nav[aria-label="Breadcrumb"] {
 
 .other-business-card.sarvathaa-card .business-logo-box,
 .other-business-card.sarvathaa-card .clean-logo-box {
-  width: 140px !important;
-  height: 140px !important;
+  width: 108px !important;
+  height: 108px !important;
   min-width: 140px !important;
   max-width: 140px !important;
   max-height: 140px !important;
@@ -3532,8 +3532,8 @@ nav[aria-label="Breadcrumb"] {
 .other-business-card.sarvathaa-card .clean-logo-box img {
   width: 175px !important;
   height: 190px !important;
-  max-width: 175px !important;
-  max-height: 190px !important;
+  max-width: 150px !important;
+  max-height: 150px !important;
   object-fit: contain !important;
 }
 
@@ -5074,6 +5074,46 @@ nav[aria-label="Breadcrumb"] {
 .detail-hero .detail-overlay {
   display: none !important;
 }
+
+/* === QUICK FIX: unify Osun's and Sarvathaa other-business-card placement === */
+.other-business-card.osuns-card,
+.other-business-card.sarvathaa-card {
+  grid-template-columns: 165px minmax(0, 1fr) !important;
+  align-items: flex-start !important;
+  gap: 18px !important;
+  padding: 28px !important;
+}
+
+.other-business-card .business-card-top {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.other-business-card .business-logo-box,
+.other-business-card .clean-logo-box {
+  width: 165px !important;
+  height: 165px !important;
+  min-width: 165px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+.other-business-card .business-logo-box img,
+.other-business-card .clean-logo-box img {
+  width: 135px !important;
+  height: auto !important;
+  max-width: 135px !important;
+  max-height: 135px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
 .detail-hero .container.detail-content {
   grid-column: 1 !important;
   grid-row: 1 !important;
