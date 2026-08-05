@@ -543,6 +543,7 @@ ul {
     max-width:330px;
     border-radius:18px;
     display:inline-block;
+    max-height: 300px;
 }
 
 .about-content p{
