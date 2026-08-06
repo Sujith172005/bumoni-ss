@@ -73,7 +73,7 @@ ul {
 }
 
 .container {
-  width: min(100% - 32px, 1200px);
+  width: min(100% - 32px, 1220px);
   margin: 0 auto;
 }
 
@@ -1580,7 +1580,7 @@ ul {
   text-align: left !important;
 }
 
-..footer-brand-block {
+.footer-brand-block {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
@@ -1609,8 +1609,8 @@ ul {
 .footer-link-block ul,
 .footer-contact-block p,
 .footer-brand-block p {
-  text-align: left !important;
-  margin-left: 0 !important;
+  text-align: justify !important;
+  margin-left: 0px !important;
   padding-left: 0 !important;
 }
 
@@ -3007,10 +3007,11 @@ nav[aria-label="Breadcrumb"] {
 .footer-phone,
 .footer-wa {
   font-family: var(--font-ui) !important;
-  font-size: 0.96rem !important;
+  font-size: 0.95rem !important;
   line-height: 1.65 !important;
   font-weight: 600 !important;
-  letter-spacing: 0.01em !important;
+  letter-spacing: 0.0em !important;
+  text-align: justify;
 }
 
 .footer-contact-block .footer-phone,
@@ -3098,7 +3099,7 @@ nav[aria-label="Breadcrumb"] {
   font-family: var(--font-ui) !important;
   font-size: 1rem !important;
   font-weight: 800 !important;
-  letter-spacing: 0.03em !important;
+  letter-spacing: 0.06em !important;
   text-transform: none !important;
 }
 
