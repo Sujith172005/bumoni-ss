@@ -493,7 +493,7 @@ ul {
    STORY & ABOUT LAYOUT
    ========================================================= */
 .section {
-  padding: 5rem 0;
+  padding: 2rem 0;
 }
 
 .section-header {
@@ -510,7 +510,7 @@ ul {
 }
 
 .section-subtitle {
-  max-width: 690px;
+  max-width: 700px;
   margin: 1rem auto 0;
   color: var(--muted);
   font-size: 1.05rem;
