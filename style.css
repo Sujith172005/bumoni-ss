@@ -73,7 +73,7 @@ ul {
 }
 
 .container {
-  width: min(100% - 32px, 1220px);
+  width: min(100% - 32px, 1255px);
   margin: 0 auto;
 }
 
@@ -450,7 +450,6 @@ ul {
 
 .eyebrow {
     display: inline-block;
-    margin-bottom: 0.4rem;
     color: #8f6a1c !important;
     font-family: var(--font-ui);
     font-size: clamp(1rem, 2vw, 1.1rem);
@@ -498,7 +497,7 @@ ul {
 
 .section-header {
   max-width: 800px;
-  margin: 0 auto 2.4rem;
+  margin: 0 auto 0.30rem;
   text-align: center;
 }
 
@@ -506,7 +505,7 @@ ul {
   color: var(--choc);
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 3vw, 1.5rem);
-  line-height: 1.1;
+  line-height: 1.30;
 }
 
 .section-subtitle {
@@ -517,7 +516,7 @@ ul {
 }
 
 .about-top{
-    max-width:1200px;
+    max-width:1250px;
     margin:0 auto 50px;
 }
 
@@ -991,13 +990,13 @@ ul {
 .footer-logo {
   display: flex !important;
   background: #ffffff !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 px 24px rgba(0, 0, 0, 0.08) !important;
   padding: 0 !important;
   margin-bottom: 16px !important;
   border-radius: 50% !important;
   justify-content: center !important;
-  width: 200px !important;
-  height: 130px !important;
+  width: 290px !important;
+  height: 140px !important;
 }
 
 .footer-logo img {
@@ -2685,6 +2684,12 @@ main p,
   object-fit: contain !important;
 }
 
+.center{
+  font-size: 1.27rem!important;
+  line-height: 1.4!important;
+  text-align: center !important;
+  margin: 15px auto !important;
+}
 body p,
 .section-subtitle,
 .about-content p,
@@ -2697,7 +2702,7 @@ body p,
 .business-card-content p,
 .other-business-card p {
   font-size: 1.21rem !important;
-  line-height: 1.85 !important;
+  line-height: 1.5 !important;
 }
 
 .business-card-content p,
@@ -2735,6 +2740,22 @@ body p,
     font-size: 1.07rem !important;
     line-height: 1.78 !important;
   }
+}
+.section-product-intro .section-subtitle {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important; /* Use center if you want centered text */
+}
+.section-product-intro .section-header {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.section-product-intro .container {
+    max-width: 1400px !important;
 }
 
 /* === FINAL USER FIX: remove product page breadcrumb + no color change on other-business touch === */
@@ -3097,7 +3118,7 @@ nav[aria-label="Breadcrumb"] {
 .site-footer .footer-contact-block h3 {
   color: #4b2208 !important;
   font-family: var(--font-ui) !important;
-  font-size: 1rem !important;
+  font-size: 1.10rem !important;
   font-weight: 800 !important;
   letter-spacing: 0.06em !important;
   text-transform: none !important;
@@ -4181,7 +4202,7 @@ nav[aria-label="Breadcrumb"] {
 .chocolate-subproducts-page .types-grid {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  width: min(100%, 1120px) !important;
+  width: min(100%, 1240px) !important;
   margin-inline: auto !important;
   gap: 22px !important;
   align-items: stretch !important;
